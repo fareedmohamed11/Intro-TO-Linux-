@@ -1,0 +1,944 @@
+1
+00:00:00,690 --> 00:00:01,740
+Instructor: Again, now to follow most
+
+2
+00:00:01,740 --> 00:00:03,240
+of the lecture in this section,
+
+3
+00:00:03,240 --> 00:00:05,580
+we will need the Vagrant VM
+
+4
+00:00:05,580 --> 00:00:07,890
+that we created in the previous section.
+
+5
+00:00:07,890 --> 00:00:10,740
+Most of the lecture follows on centOS
+
+6
+00:00:10,740 --> 00:00:12,960
+but then we have openSUSE also.
+
+7
+00:00:12,960 --> 00:00:16,350
+Run the command vagrant global -status,
+
+8
+00:00:16,350 --> 00:00:18,120
+to check the VM status
+
+9
+00:00:18,120 --> 00:00:19,533
+and where they are located.
+
+10
+00:00:20,730 --> 00:00:23,070
+Right, so we we're going to get into this folder
+
+11
+00:00:23,070 --> 00:00:27,360
+so cd /f/vagrant-vm/centos/
+
+12
+00:00:27,360 --> 00:00:30,360
+switch to the folder that shows, over there,
+
+13
+00:00:30,360 --> 00:00:32,970
+where you created the VM, right?
+
+14
+00:00:32,970 --> 00:00:34,410
+Let's clear the screen
+
+15
+00:00:34,410 --> 00:00:38,210
+and we'll do vagrant up to bring up this VM.
+
+16
+00:00:41,520 --> 00:00:42,570
+Okay, it's going to take a moment.
+
+17
+00:00:42,570 --> 00:00:43,403
+It's the same VM.
+
+18
+00:00:43,403 --> 00:00:45,390
+The VM was already created for me
+
+19
+00:00:45,390 --> 00:00:47,550
+so it is just powering on now.
+
+20
+00:00:47,550 --> 00:00:49,410
+I don't know if that's even a correct grammar,
+
+21
+00:00:49,410 --> 00:00:52,263
+powering on, so it's just coming up.
+
+22
+00:00:55,440 --> 00:00:57,930
+Okay, it's up in less than a minute.
+
+23
+00:00:57,930 --> 00:01:00,753
+vagrant ssh, to log into it.
+
+24
+00:01:02,460 --> 00:01:04,319
+Okay, I'm in the VM
+
+25
+00:01:04,319 --> 00:01:06,963
+and I'm going to issue the command clear.
+
+26
+00:01:07,830 --> 00:01:10,260
+Okay, now, four very basic commands.
+
+27
+00:01:10,260 --> 00:01:12,180
+First, whoami,
+
+28
+00:01:12,180 --> 00:01:14,220
+see what user you are.
+
+29
+00:01:14,220 --> 00:01:16,380
+Say, it's vagrant user.
+
+30
+00:01:16,380 --> 00:01:19,110
+pwd, present working directory,
+
+31
+00:01:19,110 --> 00:01:20,610
+it will show you where you are.
+
+32
+00:01:20,610 --> 00:01:23,721
+So, vagrant user is in vagrant's home directory
+
+33
+00:01:23,721 --> 00:01:25,383
+/home/vagrant.
+
+34
+00:01:26,310 --> 00:01:27,720
+ls command to see
+
+35
+00:01:27,720 --> 00:01:29,910
+what is there in the current directory,
+
+36
+00:01:29,910 --> 00:01:30,813
+there's nothing.
+
+37
+00:01:32,490 --> 00:01:34,680
+cat command to read a file
+
+38
+00:01:34,680 --> 00:01:39,100
+and we will mention this file path /etc/os-release,
+
+39
+00:01:40,620 --> 00:01:43,380
+this file shows what is the operating system
+
+40
+00:01:43,380 --> 00:01:45,423
+and what version it is.
+
+41
+00:01:46,320 --> 00:01:48,183
+Okay, now look at the prompt.
+
+42
+00:01:52,140 --> 00:01:55,320
+This is the user, we checked it.
+
+43
+00:01:55,320 --> 00:01:58,950
+whoami command, vagrant user, at the rate,
+
+44
+00:01:58,950 --> 00:02:01,290
+hostname, so there's no hostname set,
+
+45
+00:02:01,290 --> 00:02:02,943
+so by default will be localhost,
+
+46
+00:02:04,260 --> 00:02:06,210
+tilda symbol that represents
+
+47
+00:02:06,210 --> 00:02:08,759
+that you are in the home directory.
+
+48
+00:02:08,759 --> 00:02:10,080
+Home directory of what?
+
+49
+00:02:10,080 --> 00:02:11,670
+Of vagrant user.
+
+50
+00:02:11,670 --> 00:02:13,107
+So, we did pwd.
+
+51
+00:02:13,107 --> 00:02:14,850
+You see, we are in the home directory
+
+52
+00:02:14,850 --> 00:02:19,170
+of vagrant user /home/vagrant,
+
+53
+00:02:19,170 --> 00:02:21,570
+and then a dollar that represents
+
+54
+00:02:21,570 --> 00:02:24,540
+its a normal user shell.
+
+55
+00:02:24,540 --> 00:02:28,470
+Now, watch, I'm going to run this command, sudo-i.
+
+56
+00:02:28,470 --> 00:02:30,010
+This command will switch
+
+57
+00:02:31,260 --> 00:02:34,260
+to root user from vagrant user
+
+58
+00:02:34,260 --> 00:02:37,500
+and only vagrant user has permission
+
+59
+00:02:37,500 --> 00:02:39,060
+to switch to root user,
+
+60
+00:02:39,060 --> 00:02:42,780
+so vagrant user can, anytime, run sudo -i
+
+61
+00:02:42,780 --> 00:02:44,520
+and switch to root user.
+
+62
+00:02:44,520 --> 00:02:45,570
+Now, look at the prompt.
+
+63
+00:02:45,570 --> 00:02:47,253
+Once again, it has changed.
+
+64
+00:02:48,660 --> 00:02:51,480
+Username, root hostname
+
+65
+00:02:51,480 --> 00:02:56,100
+and tilda means the home directory of root user.
+
+66
+00:02:56,100 --> 00:03:00,930
+And hash means this is the root user's shell.
+
+67
+00:03:00,930 --> 00:03:03,330
+Now, check once again, whoami?
+
+68
+00:03:03,330 --> 00:03:04,320
+root user,
+
+69
+00:03:04,320 --> 00:03:06,180
+pwd, /root.
+
+70
+00:03:06,180 --> 00:03:08,970
+Now, /root is the home directory
+
+71
+00:03:08,970 --> 00:03:11,040
+of the root user, right?
+
+72
+00:03:11,040 --> 00:03:12,510
+Observe there is a slash
+
+73
+00:03:12,510 --> 00:03:14,823
+at the beginning and then slash root.
+
+74
+00:03:16,020 --> 00:03:18,540
+Let's do cd /,
+
+75
+00:03:18,540 --> 00:03:22,770
+this means go to the root directory.
+
+76
+00:03:22,770 --> 00:03:24,543
+I don't want you to confuse here,
+
+77
+00:03:24,543 --> 00:03:27,360
+/, just a / at the beginning
+
+78
+00:03:27,360 --> 00:03:31,200
+or only the / means the root directory,
+
+79
+00:03:31,200 --> 00:03:34,953
+which is different from the root users home directory.
+
+80
+00:03:36,240 --> 00:03:40,050
+Watch this, cd /, pwd,
+
+81
+00:03:40,050 --> 00:03:42,060
+I'm in the root directory,
+
+82
+00:03:42,060 --> 00:03:44,190
+not in root user's home directory.
+
+83
+00:03:44,190 --> 00:03:46,500
+I'm in the root directory.
+
+84
+00:03:46,500 --> 00:03:50,040
+Do ls and you should see all the files
+
+85
+00:03:50,040 --> 00:03:51,680
+that is present in the root directory.
+
+86
+00:03:51,680 --> 00:03:53,130
+Or you can say,
+
+87
+00:03:53,130 --> 00:03:56,550
+these are all the files in this operating system.
+
+88
+00:03:56,550 --> 00:04:00,000
+Observe there is /, there is a home, right?
+
+89
+00:04:00,000 --> 00:04:03,180
+That's why this /home, right?
+
+90
+00:04:03,180 --> 00:04:04,920
+And there should be root there,
+
+91
+00:04:04,920 --> 00:04:06,000
+root, right?
+
+92
+00:04:06,000 --> 00:04:08,340
+That's why it's /root.
+
+93
+00:04:08,340 --> 00:04:11,280
+So, we are in the root directory now.
+
+94
+00:04:11,280 --> 00:04:14,370
+Once again, this is root directory.
+
+95
+00:04:14,370 --> 00:04:17,043
+This is root users home directory.
+
+96
+00:04:18,060 --> 00:04:20,070
+If it's still confusing, don't worry,
+
+97
+00:04:20,070 --> 00:04:23,433
+we will get into this in detail later.
+
+98
+00:04:24,300 --> 00:04:26,370
+For now, I want you to become comfortable
+
+99
+00:04:26,370 --> 00:04:29,160
+with the commands, with the basic commands.
+
+100
+00:04:29,160 --> 00:04:31,953
+Now, if you type cd and hit Enter,
+
+101
+00:04:32,970 --> 00:04:33,870
+then you'll come back
+
+102
+00:04:33,870 --> 00:04:35,670
+to the home directory of the user.
+
+103
+00:04:35,670 --> 00:04:37,230
+You see that, it changed to tilda
+
+104
+00:04:37,230 --> 00:04:40,170
+if you do pwd, see /root.
+
+105
+00:04:40,170 --> 00:04:41,220
+So, whenever you're lost,
+
+106
+00:04:41,220 --> 00:04:43,080
+you can do cd and hit Enter.
+
+107
+00:04:43,080 --> 00:04:46,110
+You come back to the user's home directory, right?
+
+108
+00:04:46,110 --> 00:04:48,330
+Also, check what user you are, right?
+
+109
+00:04:48,330 --> 00:04:51,273
+So, you come back to that user's home directory.
+
+110
+00:04:54,180 --> 00:04:56,223
+Now, I am clearing the screen.
+
+111
+00:04:59,670 --> 00:05:01,710
+Now, let's understand the directory structure
+
+112
+00:05:01,710 --> 00:05:04,170
+cd /,
+
+113
+00:05:04,170 --> 00:05:05,850
+this is called as the root directory.
+
+114
+00:05:05,850 --> 00:05:07,650
+Forward slash is the root directory.
+
+115
+00:05:08,850 --> 00:05:09,960
+And if you do ls here,
+
+116
+00:05:09,960 --> 00:05:11,670
+you will see all the directories
+
+117
+00:05:11,670 --> 00:05:12,810
+or files that you have
+
+118
+00:05:12,810 --> 00:05:14,403
+in this Linux operating system.
+
+119
+00:05:15,300 --> 00:05:17,520
+This is the top level directory
+
+120
+00:05:17,520 --> 00:05:19,350
+of Linux operating system
+
+121
+00:05:19,350 --> 00:05:21,750
+or any Nix operating system.
+
+122
+00:05:21,750 --> 00:05:22,770
+So, you should see here,
+
+123
+00:05:22,770 --> 00:05:23,970
+a root that is the root
+
+124
+00:05:23,970 --> 00:05:24,930
+user's home directory.
+
+125
+00:05:24,930 --> 00:05:27,000
+You should see a home directory
+
+126
+00:05:27,000 --> 00:05:30,330
+inside that you'll have users' home directories.
+
+127
+00:05:30,330 --> 00:05:33,310
+You see etc for configuration boot directory
+
+128
+00:05:33,310 --> 00:05:37,050
+where you have bootloader and kernel.
+
+129
+00:05:37,050 --> 00:05:40,550
+You see media /mnt for mound points,
+
+130
+00:05:40,550 --> 00:05:43,470
+/opt, it's an optional directory
+
+131
+00:05:43,470 --> 00:05:44,973
+and we'll be using that later.
+
+132
+00:05:45,810 --> 00:05:48,330
+So, home directory /root for root user
+
+133
+00:05:48,330 --> 00:05:50,760
+normal user /home/username.
+
+134
+00:05:50,760 --> 00:05:52,293
+User executable is in /bin.
+
+135
+00:05:55,950 --> 00:05:56,910
+There's bin directory.
+
+136
+00:05:56,910 --> 00:06:00,480
+So, we are already here in the root directory.
+
+137
+00:06:00,480 --> 00:06:02,250
+We can just do cd bin.
+
+138
+00:06:02,250 --> 00:06:03,720
+If you are somewhere else,
+
+139
+00:06:03,720 --> 00:06:06,543
+you can do cd /bin.
+
+140
+00:06:07,680 --> 00:06:09,540
+Okay, you're giving the absolute path.
+
+141
+00:06:09,540 --> 00:06:11,730
+This is called as absolute path.
+
+142
+00:06:11,730 --> 00:06:14,733
+Absolute path always begins with the root directory.
+
+143
+00:06:15,690 --> 00:06:17,490
+And /bin, if you do ls,
+
+144
+00:06:17,490 --> 00:06:19,173
+you should see a lot of files.
+
+145
+00:06:20,100 --> 00:06:23,400
+These are mostly the user executable programs
+
+146
+00:06:23,400 --> 00:06:27,060
+like mv, is to move files,
+
+147
+00:06:27,060 --> 00:06:30,720
+scp to copy files to remote Linux machines,
+
+148
+00:06:30,720 --> 00:06:33,840
+yum, and you'll see many more.
+
+149
+00:06:33,840 --> 00:06:35,130
+You'll see all your commands
+
+150
+00:06:35,130 --> 00:06:37,383
+that you're using as a normal user here.
+
+151
+00:06:38,280 --> 00:06:42,284
+Like whoami,
+
+152
+00:06:42,284 --> 00:06:43,117
+pwd.
+
+153
+00:06:44,190 --> 00:06:47,853
+So, these are user executable programs.
+
+154
+00:06:48,810 --> 00:06:51,720
+If you go to /usr,
+
+155
+00:06:51,720 --> 00:06:53,853
+sorry /sbin,
+
+156
+00:06:56,673 --> 00:06:57,506
+these are the programs
+
+157
+00:06:57,506 --> 00:07:00,030
+that are executable by root user
+
+158
+00:07:00,030 --> 00:07:02,213
+like for example, mkfs.ext4,
+
+159
+00:07:02,213 --> 00:07:05,010
+this is for formatting partition,
+
+160
+00:07:05,010 --> 00:07:07,010
+which cannot be done by the normal user,
+
+161
+00:07:08,070 --> 00:07:10,800
+reboot command, to reboot your operating system.
+
+162
+00:07:10,800 --> 00:07:13,500
+This can be executed by normal user also,
+
+163
+00:07:13,500 --> 00:07:14,827
+provided you give sudo
+
+164
+00:07:15,720 --> 00:07:18,813
+and many other system executable commands.
+
+165
+00:07:19,650 --> 00:07:22,203
+So user executable, system executable.
+
+166
+00:07:23,040 --> 00:07:25,353
+Let's see the configuration directory.
+
+167
+00:07:30,491 --> 00:07:35,280
+/etc and you should see here the configuration files
+
+168
+00:07:35,280 --> 00:07:38,514
+and directories, like hostname.
+
+169
+00:07:38,514 --> 00:07:39,570
+If you wanna change the hostname,
+
+170
+00:07:39,570 --> 00:07:41,220
+you can see this file.
+
+171
+00:07:41,220 --> 00:07:45,900
+You can give the complete cat /etc/hostname/
+
+172
+00:07:45,900 --> 00:07:47,550
+and you should see the current hostname.
+
+173
+00:07:47,550 --> 00:07:49,860
+If you want, you can edit this file and change it.
+
+174
+00:07:49,860 --> 00:07:51,870
+We'll be learning that,
+
+175
+00:07:51,870 --> 00:07:54,063
+how to edit files through vi editor.
+
+176
+00:07:55,290 --> 00:07:57,060
+Yum configuration
+
+177
+00:07:57,060 --> 00:07:59,790
+which is the package manager in Red Hat machine.
+
+178
+00:07:59,790 --> 00:08:00,729
+Like you have Google Play Store
+
+179
+00:08:00,729 --> 00:08:03,213
+on your Android phone, like that.
+
+180
+00:08:04,110 --> 00:08:06,480
+Networks configuration and so many other
+
+181
+00:08:06,480 --> 00:08:07,470
+configuration files.
+
+182
+00:08:07,470 --> 00:08:10,293
+We'll be seeing a lot of files from this directory.
+
+183
+00:08:11,940 --> 00:08:13,623
+Temporary files, /tmp.
+
+184
+00:08:20,490 --> 00:08:21,930
+We'll be using these directories also,
+
+185
+00:08:21,930 --> 00:08:23,910
+especially when we write scripts
+
+186
+00:08:23,910 --> 00:08:25,500
+and you want to put some temporary data,
+
+187
+00:08:25,500 --> 00:08:26,940
+we'll put it in /tmp directory.
+
+188
+00:08:26,940 --> 00:08:28,920
+And most of the automation tool
+
+189
+00:08:28,920 --> 00:08:31,500
+is so many tools when they're doing some operation,
+
+190
+00:08:31,500 --> 00:08:33,840
+they need some files for temporary purpose,
+
+191
+00:08:33,840 --> 00:08:36,270
+they'll use /tmp directory.
+
+192
+00:08:36,270 --> 00:08:37,679
+Do not store anything over here,
+
+193
+00:08:37,679 --> 00:08:39,000
+which you want to use later.
+
+194
+00:08:39,000 --> 00:08:41,390
+This is just for temporary purpose.
+
+195
+00:08:41,390 --> 00:08:44,523
+/boot kernels and bootloaders.
+
+196
+00:08:45,870 --> 00:08:47,733
+cd /boot.
+
+197
+00:08:50,130 --> 00:08:54,060
+So, that's your bootloader, initramfs,
+
+198
+00:08:54,060 --> 00:08:55,953
+vmlinuz, that's your your kernel.
+
+199
+00:08:57,330 --> 00:08:59,520
+And there's a grub directory inside this
+
+200
+00:08:59,520 --> 00:09:01,920
+where you'll have the configuration for booting,
+
+201
+00:09:03,480 --> 00:09:08,480
+grub2, this you get it more into system administration.
+
+202
+00:09:10,200 --> 00:09:13,020
+You need to change the booting parameters
+
+203
+00:09:13,020 --> 00:09:14,880
+the kernel version, stuff like that.
+
+204
+00:09:14,880 --> 00:09:16,893
+Then, you can use these configurations.
+
+205
+00:09:17,900 --> 00:09:21,540
+/var, or /srv to store the server data.
+
+206
+00:09:21,540 --> 00:09:23,130
+We'll be seeing that later.
+
+207
+00:09:23,130 --> 00:09:25,890
+System information, /proc /sys.
+
+208
+00:09:25,890 --> 00:09:28,023
+Let me show you one example from this.
+
+209
+00:09:33,120 --> 00:09:35,340
+If you are anywhere in the Linux system
+
+210
+00:09:35,340 --> 00:09:36,240
+and if you want to come back
+
+211
+00:09:36,240 --> 00:09:37,260
+to your home directory,
+
+212
+00:09:37,260 --> 00:09:39,630
+you can just say cd and hit Enter.
+
+213
+00:09:39,630 --> 00:09:41,630
+You'll come back to your home directory.
+
+214
+00:09:42,930 --> 00:09:45,460
+From here, let's go to /proc
+
+215
+00:09:47,070 --> 00:09:49,110
+and you will see some files over here.
+
+216
+00:09:49,110 --> 00:09:50,610
+These are dynamic files.
+
+217
+00:09:50,610 --> 00:09:51,630
+Mostly, they'll be changing
+
+218
+00:09:51,630 --> 00:09:53,550
+based on the system information.
+
+219
+00:09:53,550 --> 00:09:55,770
+Like for example, there is a command called uptime
+
+220
+00:09:55,770 --> 00:09:58,980
+which will read how long the system is up and running.
+
+221
+00:09:58,980 --> 00:10:01,950
+So, the system is up from past 13 minutes.
+
+222
+00:10:01,950 --> 00:10:03,960
+It'll show you how many users are logged in
+
+223
+00:10:03,960 --> 00:10:05,850
+and the current load average.
+
+224
+00:10:05,850 --> 00:10:07,830
+We'll understand load average later.
+
+225
+00:10:07,830 --> 00:10:09,090
+But what I want to point you here
+
+226
+00:10:09,090 --> 00:10:11,370
+is this is a command that reads information
+
+227
+00:10:11,370 --> 00:10:12,203
+from this file.
+
+228
+00:10:12,203 --> 00:10:14,520
+You should see uptime file here
+
+229
+00:10:14,520 --> 00:10:16,250
+that you'll have some information,
+
+230
+00:10:16,250 --> 00:10:21,250
+/proc/uptime but it may not be user readable.
+
+231
+00:10:21,300 --> 00:10:24,210
+Or you have command like free -m
+
+232
+00:10:24,210 --> 00:10:26,160
+which shows you the RAM size.
+
+233
+00:10:26,160 --> 00:10:27,720
+And these things are dynamic.
+
+234
+00:10:27,720 --> 00:10:28,860
+These things changes
+
+235
+00:10:28,860 --> 00:10:30,540
+and that's why content in this directory
+
+236
+00:10:30,540 --> 00:10:31,953
+will be regularly changing.
+

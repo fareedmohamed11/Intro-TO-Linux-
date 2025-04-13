@@ -1,0 +1,576 @@
+1
+00:00:00,440 --> 00:00:06,680
+Hello and welcome in this video, we will be talking about processes so there are so many processes
+
+2
+00:00:06,680 --> 00:00:10,130
+you will see running in the linux system, running or sleeping.
+
+3
+00:00:11,600 --> 00:00:18,140
+There is one command top which will show you all the dynamic processes based on their consumption
+
+4
+00:00:18,140 --> 00:00:19,490
+of CPU and RAM.
+
+5
+00:00:20,150 --> 00:00:22,880
+So this is similar to like a task manager.
+
+6
+00:00:22,890 --> 00:00:27,410
+You have it on windows and it's a very helpful command it shows lot of information.
+
+7
+00:00:27,980 --> 00:00:29,860
+It is going to show up time.
+
+8
+00:00:30,350 --> 00:00:32,630
+So system up from past nine minutes.
+
+9
+00:00:32,640 --> 00:00:37,070
+This one user logged in and then you have load average.
+
+10
+00:00:37,070 --> 00:00:41,570
+Load Average is CPU wait time it is different and CPU utilization.
+
+11
+00:00:41,900 --> 00:00:46,400
+If the CPU utilization is full, then the load average will start increasing.
+
+12
+00:00:46,940 --> 00:00:48,830
+And you see three values over here.
+
+13
+00:00:49,940 --> 00:00:51,030
+Comma, separated.
+
+14
+00:00:51,590 --> 00:00:58,280
+So this is the current minute load average, this is last five minutes load average and this is last
+
+15
+00:00:58,280 --> 00:01:00,130
+15 minutes load average.
+
+16
+00:01:01,220 --> 00:01:03,520
+So your processes are called tasks.
+
+17
+00:01:03,530 --> 00:01:07,250
+So there are 117 tasks total out of them.
+
+18
+00:01:07,250 --> 00:01:10,550
+Only one is running and 116 are sleeping.
+
+19
+00:01:11,570 --> 00:01:15,430
+Looks like a very lazy operating system, but that's how it works.
+
+20
+00:01:16,670 --> 00:01:23,600
+Zero are in a stopped state, there is a stopped state also for a process which you can start by issuing
+
+21
+00:01:23,600 --> 00:01:26,330
+some commands, zero zombie processes.
+
+22
+00:01:26,750 --> 00:01:30,380
+Zombies are the processes whose operations are done.
+
+23
+00:01:30,380 --> 00:01:32,480
+But there entry is still in the process table.
+
+24
+00:01:32,490 --> 00:01:34,340
+We will see that later.
+
+25
+00:01:35,780 --> 00:01:39,020
+CPU utilization is 0.0 currently.
+
+26
+00:01:39,650 --> 00:01:44,120
+And then you see the RAM and swap detail, which is better to see through free -m
+
+27
+00:01:44,130 --> 00:01:44,960
+free -m command
+
+28
+00:01:46,070 --> 00:01:50,840
+Then you have the process id and you see these processes are really dancing.
+
+29
+00:01:51,530 --> 00:01:55,070
+They're just getting sorted automatically based on their CPU consumption.
+
+30
+00:01:55,820 --> 00:01:58,550
+The first column you see PID, process id.
+
+31
+00:01:58,670 --> 00:02:06,170
+Every process will have an ID, we generally call them as PID. User which is running that process.
+
+32
+00:02:06,180 --> 00:02:13,100
+So there is the process name like Top, Systemd, kthreadd , these are the process names and these are
+
+33
+00:02:13,100 --> 00:02:15,580
+the users that are running that process.
+
+34
+00:02:15,580 --> 00:02:22,430
+The root user is running this particular process and now this jenkins' running Java. See that's dancing.
+
+35
+00:02:22,430 --> 00:02:25,520
+But we will see other commands where we can really see all the processes.
+
+36
+00:02:26,150 --> 00:02:33,230
+So you can see the status of the process. s stands for sleeping and the 
+
+37
+00:02:33,230 --> 00:02:37,730
+CPU It's consuming, RAM it's consuming and the process name.
+
+38
+00:02:39,230 --> 00:02:42,630
+OK, I'm going to give q, this is to quit from here.
+
+39
+00:02:42,650 --> 00:02:45,350
+q and I'll clear the screen
+
+40
+00:02:46,220 --> 00:02:49,000
+We'll see other command like ps aux
+
+41
+00:02:49,040 --> 00:02:53,810
+It is similar to top but it diplays information on the screen and it just quits.
+
+42
+00:02:55,340 --> 00:03:00,890
+OK, so it's going to show you all the processes, but you should see similar information as the top
+
+43
+00:03:00,890 --> 00:03:01,330
+command.
+
+44
+00:03:02,300 --> 00:03:10,100
+PID 1 is the first process which in new systems is systemd in older Linux systems, it's init.
+
+45
+00:03:10,580 --> 00:03:12,260
+but in Ubuntu it's still init.
+
+46
+00:03:12,310 --> 00:03:16,550
+That's the first process in the Linux, either init or system.
+
+47
+00:03:17,480 --> 00:03:22,820
+And this process is going to start so many other processes and will also handle so many other child processes
+
+48
+00:03:22,820 --> 00:03:23,090
+as well.
+
+49
+00:03:24,120 --> 00:03:30,990
+The process that you see in this square bracket, these are kernel threads, and you come down and you
+
+50
+00:03:30,990 --> 00:03:38,610
+should see some normal processes like httpd process, and you see multiple httpd processes because httpd
+
+51
+00:03:38,610 --> 00:03:43,290
+is running. When we said systemctl start httpd, which started these processes.
+
+52
+00:03:44,490 --> 00:03:47,070
+There is also sshd processes
+
+53
+00:03:48,790 --> 00:03:55,840
+So this this is going to sort with the process id and it's also going to display the utilization, it's
+
+54
+00:03:55,840 --> 00:03:57,360
+going to sort as per the PID
+
+55
+00:03:59,140 --> 00:04:05,200
+Then you have ps -ef, which is going to show you all the processes again.
+
+56
+00:04:05,920 --> 00:04:10,020
+But it's going to show you, not the utilization, but the parent process.
+
+57
+00:04:10,040 --> 00:04:16,000
+And that's the extra information minus the CPU and RAM utilization so PID 1
+
+58
+00:04:16,000 --> 00:04:22,120
+PPID, that is parent process ID, which was, you know, which process that started this process.
+
+59
+00:04:22,120 --> 00:04:25,570
+So there is a process ID which is zero that started this process.
+
+60
+00:04:25,570 --> 00:04:28,390
+But then you don't see a zero process because it's dead.
+
+61
+00:04:28,390 --> 00:04:29,500
+It's at the boot time.
+
+62
+00:04:30,940 --> 00:04:34,030
+So if you scroll down, you will see httpd process.
+
+63
+00:04:34,480 --> 00:04:38,770
+And I can say this process has started all these other processes.
+
+64
+00:04:39,490 --> 00:04:39,970
+How?
+
+65
+00:04:39,970 --> 00:04:42,130
+Well, check this out, PID is 1420
+
+66
+00:04:42,130 --> 00:04:48,010
+PID 1420 for this process and PPID is 1, then this process.
+
+67
+00:04:48,010 --> 00:04:49,330
+PID 1421
+
+68
+00:04:49,330 --> 00:04:55,480
+Its parent is 1420, which is this process. Again here
+
+69
+00:04:55,480 --> 00:05:00,380
+also 1420, 1420, 1420....
+
+70
+00:05:00,400 --> 00:05:01,570
+So that's the parent process id.
+
+71
+00:05:02,410 --> 00:05:07,090
+So I can say that this process has started all this other child processes.
+
+72
+00:05:08,130 --> 00:05:09,580
+Which is also called forking.
+
+73
+00:05:11,490 --> 00:05:15,900
+OK, so I have systemctl command, I can stop this process, but what if I don't have a systemctl
+
+74
+00:05:15,930 --> 00:05:16,240
+systemctl
+
+75
+00:05:16,260 --> 00:05:16,670
+command
+
+76
+00:05:17,280 --> 00:05:19,290
+Well, then how I'm going to stop a process?
+
+77
+00:05:19,820 --> 00:05:21,690
+Well, there is a command kill
+
+78
+00:05:22,620 --> 00:05:23,040
+You know what?
+
+79
+00:05:23,050 --> 00:05:27,690
+First, let's get this process id, ps -ef
+
+80
+00:05:27,870 --> 00:05:28,590
+grep httpd
+
+81
+00:05:32,130 --> 00:05:39,030
+So it shows all the httpd process and plus it also shows one more process, that's a grep process and
+
+82
+00:05:39,030 --> 00:05:40,180
+it's already dead.
+
+83
+00:05:40,210 --> 00:05:40,910
+That was the grep command.
+
+84
+00:05:40,920 --> 00:05:41,360
+.
+
+85
+00:05:42,180 --> 00:05:48,270
+And I don't want to see that grep process, so I'm gonna pipe it with grep -v and I'm going to
+
+86
+00:05:48,270 --> 00:05:52,800
+say do not show me a process that has the word grep in it.
+
+87
+00:05:54,030 --> 00:05:55,830
+Or you can say color also, whatever.
+
+88
+00:05:56,920 --> 00:05:59,110
+OK, so I only see the httpd process now.
+
+89
+00:06:00,060 --> 00:06:06,390
+Now, if I want to stop this process, I can say kill and give the parent process id, which 1420
+
+90
+00:06:06,390 --> 00:06:07,050
+1420
+
+91
+00:06:08,190 --> 00:06:08,800
+hit enter
+
+92
+00:06:10,100 --> 00:06:17,870
+And now you should not see those httpd  process, so when I say kill, which sounds harsh, but it's actually more
+
+93
+00:06:17,870 --> 00:06:22,040
+of asking this process, hey, can you please close your operations?
+
+94
+00:06:22,610 --> 00:06:27,800
+So this process will first close all the child operations and then it will close itself.
+
+95
+00:06:28,190 --> 00:06:34,730
+So this is more of asking, but sometimes process becomes adamant and it does not listen and you have
+
+96
+00:06:34,730 --> 00:06:35,870
+to forcefully kill them.
+
+97
+00:06:36,770 --> 00:06:38,720
+System start httpd
+
+98
+00:06:39,420 --> 00:06:41,110
+So let me start this process.
+
+99
+00:06:42,440 --> 00:06:43,880
+Let's search once again.
+
+100
+00:06:45,690 --> 00:06:52,050
+OK, so forceful is -9, you don't have to issue -p every time because kill is better,
+
+101
+00:06:52,440 --> 00:06:58,320
+but if sometimes it does not work, you give -9, which is forceful and you give the parent process.
+
+102
+00:06:58,320 --> 00:07:01,670
+But this time it's not going to close the child processes.
+
+103
+00:07:02,130 --> 00:07:05,040
+This process will become orphan because.
+
+104
+00:07:06,090 --> 00:07:09,840
+The parent process has no idea that, you know, it's getting closed.
+
+105
+00:07:14,590 --> 00:07:20,440
+Now, you see these processes are adopted by the systemd, process, the first process and these 
+
+106
+00:07:20,440 --> 00:07:23,710
+are orphan process, nowadays, the systems are smart.
+
+107
+00:07:23,710 --> 00:07:26,170
+This orphan process will get cleared automatically.
+
+108
+00:07:26,710 --> 00:07:32,710
+But if if it does not get cleared and you have to kill all these processes now, they're like, what?
+
+109
+00:07:32,710 --> 00:07:35,740
+Five child processes or orphan process.
+
+110
+00:07:36,930 --> 00:07:40,760
+But if your many, many, then it will be difficult to do that so we can use some filtering.
+
+111
+00:07:40,770 --> 00:07:41,400
+filtering command here
+
+112
+00:07:42,620 --> 00:07:49,930
+So let's say, it's still there. Let me clear the screen. Its still showing. So I am going to pipe that with awk
+
+113
+00:07:50,570 --> 00:07:52,340
+and I want to get the PID.
+
+114
+00:07:52,380 --> 00:07:55,550
+So I, I need just a second column.
+
+115
+00:07:56,120 --> 00:07:58,790
+So I'm going to say, awk, in single quote.
+
+116
+00:08:00,470 --> 00:08:02,150
+curly brances
+
+117
+00:08:03,080 --> 00:08:03,980
+print $2
+
+118
+00:08:05,710 --> 00:08:13,940
+OK, I get the PID and then I can pipe it with a command called xargs kill -9
+
+119
+00:08:14,950 --> 00:08:20,020
+All right, so all this PID will come as an argument to this command.
+
+120
+00:08:22,510 --> 00:08:29,830
+So it's really a shortcut to kill all the processes, systemctl start httpd
+
+121
+00:08:29,830 --> 00:08:30,400
+Lets start it once again.
+
+122
+00:08:32,600 --> 00:08:39,549
+You see the PID of a httpd process and then you can pipe it again with xargs kill -9
+
+123
+00:08:39,559 --> 00:08:42,820
+so if you're issuing 9, then you make sure you do like this.
+
+124
+00:08:42,820 --> 00:08:48,220
+filter it find the  process IDs, and then send it to kill -9 command
+
+125
+00:08:48,220 --> 00:08:48,610
+.
+
+126
+00:08:50,160 --> 00:08:52,830
+OK, this is one more trick or tip.
+
+127
+00:08:54,170 --> 00:08:59,750
+So you have seen the orphan process, if the parent process is dead, then the child process will
+
+128
+00:08:59,750 --> 00:09:05,180
+be adopted mostly by PID1 and these process are called orphan process.
+
+129
+00:09:05,180 --> 00:09:10,920
+Orphan process will not serve much purpose, but it will still consume the resources.
+
+130
+00:09:11,360 --> 00:09:14,030
+So it's ideal to clear the orphan processes.
+
+131
+00:09:14,450 --> 00:09:14,760
+Right.
+
+132
+00:09:14,780 --> 00:09:16,940
+And to do it all at once will be better.
+
+133
+00:09:18,470 --> 00:09:25,250
+So that's orphan process, zombi process are easy to identify, they'll have status as z in ps aux command.
+
+134
+00:09:25,250 --> 00:09:28,490
+you can find out and you will also see how many zombi process are there.
+
+135
+00:09:29,720 --> 00:09:35,720
+As their name says, Zombie's, dead, like we see in the movies. Process, which is dead, but its
+
+136
+00:09:35,720 --> 00:09:37,570
+entry still in the process table.
+
+137
+00:09:38,330 --> 00:09:41,660
+It is not consuming resource, but it may create some problems.
+
+138
+00:09:41,790 --> 00:09:47,330
+The best way to clear zombie process is to reboot your machine, but there are some other ways to refresh
+
+139
+00:09:47,330 --> 00:09:48,890
+your process table also.
+
+140
+00:09:50,000 --> 00:09:51,320
+So I'm going to quit here.
+
+141
+00:09:53,180 --> 00:09:57,560
+So we have seen very simple commands top, ps aux, ps -ef, kill command
+
+142
+00:10:00,340 --> 00:10:05,860
+And we have also seen, how we can do filtering of your processes and issue a kill command on it.
+
+143
+00:10:07,300 --> 00:10:09,260
+So that is all in this video.
+
+144
+00:10:09,280 --> 00:10:10,750
+I will see you in the next one.
+

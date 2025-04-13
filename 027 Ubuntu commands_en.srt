@@ -1,0 +1,916 @@
+1
+00:00:00,870 --> 00:00:01,890
+Instructor: Hello and welcome.
+
+2
+00:00:01,890 --> 00:00:06,420
+In this lecture, we will learn Ubuntu operating system.
+
+3
+00:00:06,420 --> 00:00:07,470
+Now most of the command
+
+4
+00:00:07,470 --> 00:00:09,210
+that we have learned previously works
+
+5
+00:00:09,210 --> 00:00:12,600
+on Ubuntu and CentOS both except few.
+
+6
+00:00:12,600 --> 00:00:14,610
+We will see the difference
+
+7
+00:00:14,610 --> 00:00:16,320
+and then you will find yourself
+
+8
+00:00:16,320 --> 00:00:19,020
+that's more or less same operating system
+
+9
+00:00:19,020 --> 00:00:19,980
+except some changes.
+
+10
+00:00:19,980 --> 00:00:21,600
+So let's bring up the Ubuntu OS.
+
+11
+00:00:21,600 --> 00:00:26,600
+So I have it in vagrant /f/vagrant-vms/ubuntu
+
+12
+00:00:27,540 --> 00:00:29,190
+is the vagrant file,
+
+13
+00:00:29,190 --> 00:00:32,463
+vagrant global -status.
+
+14
+00:00:34,080 --> 00:00:36,240
+Okay, so CentOS VM that is powered off
+
+15
+00:00:36,240 --> 00:00:37,770
+and Ubuntu VM, it is powered off.
+
+16
+00:00:37,770 --> 00:00:41,070
+This is same from VM setup lecture.
+
+17
+00:00:41,070 --> 00:00:43,680
+So you should be also having this.
+
+18
+00:00:43,680 --> 00:00:46,293
+All you can do is vagrant up.
+
+19
+00:00:47,220 --> 00:00:49,020
+The VM already is created
+
+20
+00:00:49,020 --> 00:00:51,213
+it's just going to power on the VM.
+
+21
+00:00:52,350 --> 00:00:53,250
+Okay, VM is up.
+
+22
+00:00:53,250 --> 00:00:55,173
+Let's log into it, vagrant ssh,
+
+23
+00:00:57,540 --> 00:00:59,673
+and let's clear the screen.
+
+24
+00:01:00,720 --> 00:01:03,513
+Let's check the OS, etc/os-release.
+
+25
+00:01:04,349 --> 00:01:06,300
+It's Ubuntu 22.
+
+26
+00:01:06,300 --> 00:01:08,313
+switch to the root user.
+
+27
+00:01:10,110 --> 00:01:12,780
+Let's check the logged in user.
+
+28
+00:01:12,780 --> 00:01:14,550
+it's root now pwd,
+
+29
+00:01:14,550 --> 00:01:17,190
+you're in root user's home directory.
+
+30
+00:01:17,190 --> 00:01:19,170
+So most of the command in Ubuntu
+
+31
+00:01:19,170 --> 00:01:22,440
+is same as CentOS except few.
+
+32
+00:01:22,440 --> 00:01:25,770
+Starting with the command useradd,
+
+33
+00:01:25,770 --> 00:01:27,630
+there is useradd command in Ubuntu,
+
+34
+00:01:27,630 --> 00:01:29,307
+if you run this, you say useradd
+
+35
+00:01:29,307 --> 00:01:32,343
+and let's say devops.
+
+36
+00:01:33,570 --> 00:01:34,890
+So it does add the user.
+
+37
+00:01:34,890 --> 00:01:37,650
+If you switch to that user,
+
+38
+00:01:37,650 --> 00:01:39,333
+you'll see some problems.
+
+39
+00:01:40,260 --> 00:01:42,480
+So there's no home directory, okay?
+
+40
+00:01:42,480 --> 00:01:44,340
+So it just took you to the root directory.
+
+41
+00:01:44,340 --> 00:01:45,690
+There is no home directory.
+
+42
+00:01:46,680 --> 00:01:49,740
+So when you use useradd command in Ubuntu
+
+43
+00:01:49,740 --> 00:01:51,300
+it will not create the home directory,
+
+44
+00:01:51,300 --> 00:01:52,800
+It will not create the mailing spool
+
+45
+00:01:52,800 --> 00:01:54,660
+and so many other things.
+
+46
+00:01:54,660 --> 00:01:59,387
+So I'm going to delete userdel -r devops.
+
+47
+00:02:02,295 --> 00:02:03,128
+see it says,
+
+48
+00:02:03,128 --> 00:02:05,340
+"There's no home directory found while deleting
+
+49
+00:02:05,340 --> 00:02:07,680
+and no mail spool found."
+
+50
+00:02:07,680 --> 00:02:08,850
+which you can specify,
+
+51
+00:02:08,850 --> 00:02:11,190
+you can use with -useradd option,
+
+52
+00:02:11,190 --> 00:02:12,600
+You have useradd command,
+
+53
+00:02:12,600 --> 00:02:14,400
+you have some options.
+
+54
+00:02:14,400 --> 00:02:17,010
+You can specify the home directory.
+
+55
+00:02:17,010 --> 00:02:18,780
+But the easy way in Ubuntu
+
+56
+00:02:18,780 --> 00:02:21,303
+is to use adduser command.
+
+57
+00:02:22,290 --> 00:02:23,871
+instead of useradd,
+
+58
+00:02:23,871 --> 00:02:25,620
+We have adduser in Ubuntu.
+
+59
+00:02:25,620 --> 00:02:27,130
+Let's do that, adduser
+
+60
+00:02:28,100 --> 00:02:31,140
+and it's also passwd included with that
+
+61
+00:02:31,140 --> 00:02:34,230
+So it is showing you that it has created a user devops,
+
+62
+00:02:34,230 --> 00:02:36,480
+created a group called as devops
+
+63
+00:02:36,480 --> 00:02:39,180
+and then adding devops user to devops group,
+
+64
+00:02:39,180 --> 00:02:41,160
+creating home directories
+
+65
+00:02:41,160 --> 00:02:43,383
+and moving files from /etc/skel.
+
+66
+00:02:44,220 --> 00:02:46,050
+So when you create user in Linux system
+
+67
+00:02:46,050 --> 00:02:47,580
+it'll copy all the files
+
+68
+00:02:47,580 --> 00:02:51,360
+from /etc/skel directory to users home directory.
+
+69
+00:02:51,360 --> 00:02:52,680
+And these are some files
+
+70
+00:02:52,680 --> 00:02:55,530
+we are going to see them in Bash scripting.
+
+71
+00:02:55,530 --> 00:02:57,690
+Next it is also asking the password
+
+72
+00:02:57,690 --> 00:02:59,740
+so we can enter the password also
+
+73
+00:03:02,640 --> 00:03:04,350
+and we'll ask some other information
+
+74
+00:03:04,350 --> 00:03:06,210
+like full name, room number,
+
+75
+00:03:06,210 --> 00:03:08,310
+work phone, blah blah blah.
+
+76
+00:03:08,310 --> 00:03:10,350
+Just keep hitting Enter
+
+77
+00:03:10,350 --> 00:03:12,120
+and if you're good with this
+
+78
+00:03:12,120 --> 00:03:14,403
+just say yes, Y for yes.
+
+79
+00:03:15,480 --> 00:03:19,500
+Okay, you should see the user devops
+
+80
+00:03:19,500 --> 00:03:20,910
+and rest everything the same,
+
+81
+00:03:20,910 --> 00:03:22,913
+passwd command, group add command,
+
+82
+00:03:22,913 --> 00:03:24,840
+usermod command, okay?
+
+83
+00:03:24,840 --> 00:03:28,500
+So that's one difference from CentOS to Ubuntu.
+
+84
+00:03:28,500 --> 00:03:30,150
+Adduser instead of useradd.
+
+85
+00:03:30,150 --> 00:03:34,260
+The other one is visudo command if you run,
+
+86
+00:03:34,260 --> 00:03:38,190
+we know it opens the sudos file in vi editor
+
+87
+00:03:38,190 --> 00:03:41,070
+but in Ubuntu the default editor is nano.
+
+88
+00:03:41,070 --> 00:03:42,580
+So if you hit Enter here
+
+89
+00:03:43,440 --> 00:03:45,990
+it'll open this file into nano editor.
+
+90
+00:03:45,990 --> 00:03:47,220
+If you know nano editor,
+
+91
+00:03:47,220 --> 00:03:49,110
+it's fine, you can use that.
+
+92
+00:03:49,110 --> 00:03:49,943
+But if you don't know,
+
+93
+00:03:49,943 --> 00:03:53,370
+you can just say Control + X to quit.
+
+94
+00:03:53,370 --> 00:03:55,953
+We want the default editor to be VIM.
+
+95
+00:03:56,790 --> 00:03:58,380
+So we can run this command,
+
+96
+00:03:58,380 --> 00:04:00,707
+export EDITOR=vim.
+
+97
+00:04:08,790 --> 00:04:12,120
+Now how this command works, export EDITOR=vim.
+
+98
+00:04:12,120 --> 00:04:13,650
+We are going to see that in Bash scripting.
+
+99
+00:04:13,650 --> 00:04:15,630
+These are variables
+
+100
+00:04:15,630 --> 00:04:17,760
+and this is setting variable temporarily
+
+101
+00:04:17,760 --> 00:04:18,870
+on your current shell.
+
+102
+00:04:18,870 --> 00:04:20,430
+If you logout and login,
+
+103
+00:04:20,430 --> 00:04:22,110
+you have to do it again.
+
+104
+00:04:22,110 --> 00:04:23,760
+But now if you run visudo,
+
+105
+00:04:23,760 --> 00:04:26,610
+it should open it in VIM editor.
+
+106
+00:04:26,610 --> 00:04:27,893
+There you go, okay?
+
+107
+00:04:29,100 --> 00:04:31,713
+And you can use colon Q to quit.
+
+108
+00:04:33,270 --> 00:04:35,280
+So that's the second difference.
+
+109
+00:04:35,280 --> 00:04:36,510
+Before running visudo,
+
+110
+00:04:36,510 --> 00:04:38,460
+you run export EDITOR=vim
+
+111
+00:04:38,460 --> 00:04:40,353
+if you want VIM editor.
+
+112
+00:04:41,190 --> 00:04:43,320
+But if you log out and log in,
+
+113
+00:04:43,320 --> 00:04:46,051
+then you have to do it once again
+
+114
+00:04:46,051 --> 00:04:47,040
+and we can make it permanent.
+
+115
+00:04:47,040 --> 00:04:49,803
+Also, again, we are gonna see that in Bash scripting.
+
+116
+00:04:50,700 --> 00:04:53,913
+Okay, the main difference is package manager.
+
+117
+00:04:55,530 --> 00:04:57,030
+So let's do the same thing.
+
+118
+00:04:57,030 --> 00:04:59,010
+What we really did in CentOS,
+
+119
+00:04:59,010 --> 00:05:01,113
+we'll download a tree package.
+
+120
+00:05:02,340 --> 00:05:04,170
+So in your browser,
+
+121
+00:05:04,170 --> 00:05:07,360
+just search for tree debian package for Ubuntu
+
+122
+00:05:08,610 --> 00:05:11,790
+and you should see ubuntu.package.org
+
+123
+00:05:11,790 --> 00:05:14,013
+or you can look for other sites as well.
+
+124
+00:05:16,830 --> 00:05:18,700
+And let's scroll down here
+
+125
+00:05:19,560 --> 00:05:20,940
+and you should see the mirror
+
+126
+00:05:20,940 --> 00:05:22,290
+and binary package URL.
+
+127
+00:05:22,290 --> 00:05:23,490
+So that's the URL.
+
+128
+00:05:23,490 --> 00:05:25,000
+You can just copy that
+
+129
+00:05:27,390 --> 00:05:29,630
+and you can say wget
+
+130
+00:05:29,630 --> 00:05:32,583
+or you can do curl also, paste that.
+
+131
+00:05:34,020 --> 00:05:36,780
+So it should download the debian package
+
+132
+00:05:36,780 --> 00:05:40,863
+and to install it dpkg -I tree.
+
+133
+00:05:43,140 --> 00:05:46,950
+Okay, now the tree command should be there, it's working.
+
+134
+00:05:46,950 --> 00:05:49,080
+To list all the debian package in your machine.
+
+135
+00:05:49,080 --> 00:05:51,903
+You can say dpkg -l.
+
+136
+00:05:54,180 --> 00:05:56,340
+And if you want to search something from there
+
+137
+00:05:56,340 --> 00:05:59,760
+you can say dpkg -l pipe grep
+
+138
+00:05:59,760 --> 00:06:00,933
+and the package name.
+
+139
+00:06:02,280 --> 00:06:07,280
+If you want to remove dpkg -r tree,
+
+140
+00:06:08,370 --> 00:06:10,440
+it's gonna remove the package.
+
+141
+00:06:10,440 --> 00:06:12,750
+That's manually downloading and installing it, right?
+
+142
+00:06:12,750 --> 00:06:15,630
+But as we have yum in Red Hat machine,
+
+143
+00:06:15,630 --> 00:06:17,193
+here we have apt.
+
+144
+00:06:18,420 --> 00:06:22,530
+So /etc/apt,
+
+145
+00:06:22,530 --> 00:06:24,300
+let's get into this directory
+
+146
+00:06:24,300 --> 00:06:27,000
+and you should see a file here sources.list.
+
+147
+00:06:27,000 --> 00:06:31,067
+This will contain the repository information, right?
+
+148
+00:06:34,290 --> 00:06:36,360
+So you have different URLs over here
+
+149
+00:06:36,360 --> 00:06:40,350
+and if you want you can add any new repository information.
+
+150
+00:06:40,350 --> 00:06:41,490
+But whenever you make change
+
+151
+00:06:41,490 --> 00:06:43,500
+or if you want to install any software
+
+152
+00:06:43,500 --> 00:06:45,210
+in Ubuntu or any Debian machine,
+
+153
+00:06:45,210 --> 00:06:47,130
+you run the command apt update first.
+
+154
+00:06:47,130 --> 00:06:49,440
+So it'll go and check all the repository
+
+155
+00:06:49,440 --> 00:06:52,740
+for the latest package and create a list.
+
+156
+00:06:52,740 --> 00:06:54,000
+You don't need to do that with Yum
+
+157
+00:06:54,000 --> 00:06:55,260
+because Yum will anyways.
+
+158
+00:06:55,260 --> 00:06:58,110
+Search first, create a list
+
+159
+00:06:58,110 --> 00:07:00,753
+and it can refresh the list every 24 hours.
+
+160
+00:07:02,430 --> 00:07:04,890
+But this is the place where Ubuntu or Debian
+
+161
+00:07:04,890 --> 00:07:06,990
+really beats Red Hat system
+
+162
+00:07:06,990 --> 00:07:09,600
+because of its software access.
+
+163
+00:07:09,600 --> 00:07:12,360
+It has tons and tons of softwares,
+
+164
+00:07:12,360 --> 00:07:13,789
+which is available from
+
+165
+00:07:13,789 --> 00:07:16,170
+so many repositories around the world.
+
+166
+00:07:16,170 --> 00:07:19,050
+So you an apt update, you update the list
+
+167
+00:07:19,050 --> 00:07:23,280
+and then you can see apt search tree
+
+168
+00:07:23,280 --> 00:07:25,590
+to search for a package named tree.
+
+169
+00:07:25,590 --> 00:07:27,300
+And you'll see so many packages
+
+170
+00:07:27,300 --> 00:07:28,593
+which has the name tree.
+
+171
+00:07:30,330 --> 00:07:33,420
+You can see apt install tree.
+
+172
+00:07:33,420 --> 00:07:36,300
+This also apt -get, which is older one.
+
+173
+00:07:36,300 --> 00:07:39,993
+You can just use apt and hit Enter.
+
+174
+00:07:42,660 --> 00:07:45,660
+So download and install and again with dependencies.
+
+175
+00:07:45,660 --> 00:07:48,120
+So tree does not have any dependencies
+
+176
+00:07:48,120 --> 00:07:51,780
+but if you want to install package like Apache 2
+
+177
+00:07:51,780 --> 00:07:53,842
+which is same as httpd,
+
+178
+00:07:53,842 --> 00:07:55,863
+in CentOS here we have Apache 2.
+
+179
+00:07:57,480 --> 00:07:59,310
+Well, that is having some dependencies.
+
+180
+00:07:59,310 --> 00:08:03,360
+It says these are the packages that will get installed
+
+181
+00:08:03,360 --> 00:08:06,090
+and it's also suggesting some other packages.
+
+182
+00:08:06,090 --> 00:08:07,900
+If you're good, you say Yes
+
+183
+00:08:09,810 --> 00:08:11,430
+and it'll download the package
+
+184
+00:08:11,430 --> 00:08:13,503
+with all the dependency and install them.
+
+185
+00:08:18,240 --> 00:08:19,950
+So Apache 2 is a service
+
+186
+00:08:19,950 --> 00:08:20,783
+and in Ubuntu,
+
+187
+00:08:20,783 --> 00:08:21,990
+if you install any service,
+
+188
+00:08:21,990 --> 00:08:24,213
+it'll start it automatically.
+
+189
+00:08:25,830 --> 00:08:27,060
+You'll see Apache 2 should be
+
+190
+00:08:27,060 --> 00:08:29,970
+already active and running,
+
+191
+00:08:29,970 --> 00:08:33,870
+Q to quit and it should be also enabled.
+
+192
+00:08:33,870 --> 00:08:36,633
+So if you see S is enabled,
+
+193
+00:08:37,799 --> 00:08:38,913
+it's also enabled.
+
+194
+00:08:40,440 --> 00:08:44,327
+So if you want to upgrade all the packages in Ubuntu,
+
+195
+00:08:45,570 --> 00:08:47,170
+you can say apt upgrade
+
+196
+00:08:48,060 --> 00:08:49,620
+and apt update is different,
+
+197
+00:08:49,620 --> 00:08:52,440
+apt update is just going to check the list
+
+198
+00:08:52,440 --> 00:08:53,880
+and update the list.
+
+199
+00:08:53,880 --> 00:08:57,240
+App upgrade will actually actually upgrade all the packages.
+
+200
+00:08:57,240 --> 00:08:59,910
+So this many package to be upgraded
+
+201
+00:08:59,910 --> 00:09:01,410
+I don't want to upgrade it now.
+
+202
+00:09:01,410 --> 00:09:03,210
+So I'm gonna say N,
+
+203
+00:09:03,210 --> 00:09:06,570
+you also have apt remove to remove the packages
+
+204
+00:09:06,570 --> 00:09:08,433
+like Apache 2 you want to remove.
+
+205
+00:09:12,450 --> 00:09:15,060
+There's also one nice option when you're removing it.
+
+206
+00:09:15,060 --> 00:09:17,373
+Let's install this package once again.
+
+207
+00:09:24,780 --> 00:09:27,450
+So we know apt remove is going to remove the package
+
+208
+00:09:27,450 --> 00:09:29,550
+but it'll not remove the configuration
+
+209
+00:09:29,550 --> 00:09:33,090
+and the data of those service or package.
+
+210
+00:09:33,090 --> 00:09:34,830
+If you want to remove cleanly,
+
+211
+00:09:34,830 --> 00:09:37,720
+like everything you can just say apt purge
+
+212
+00:09:38,820 --> 00:09:40,320
+and it'll remove the package
+
+213
+00:09:40,320 --> 00:09:44,580
+with all its configuration and all its data, okay?
+
+214
+00:09:44,580 --> 00:09:46,113
+A clean uninstall.
+
+215
+00:09:51,000 --> 00:09:52,230
+When you're installing
+
+216
+00:09:52,230 --> 00:09:55,590
+or uninstalling any such services in Ubuntu
+
+217
+00:09:55,590 --> 00:09:57,210
+like Apache 2 is a service.
+
+218
+00:09:57,210 --> 00:10:00,840
+It's a network service which will serve the webpages.
+
+219
+00:10:00,840 --> 00:10:03,483
+It is also going to update the firewall rules.
+
+220
+00:10:04,920 --> 00:10:06,633
+UFW is Ubuntu firewall.
+
+221
+00:10:07,830 --> 00:10:11,610
+So these are some differences that we have seen.
+
+222
+00:10:11,610 --> 00:10:12,840
+There are a few more different commands
+
+223
+00:10:12,840 --> 00:10:14,520
+which we'll be seeing in Bash scripting
+
+224
+00:10:14,520 --> 00:10:17,190
+and cloud computing AWS.
+
+225
+00:10:17,190 --> 00:10:19,800
+But that should be all for now.
+
+226
+00:10:19,800 --> 00:10:21,210
+So practice these commands
+
+227
+00:10:21,210 --> 00:10:23,883
+so you get hold of Ubuntu operating system also.
+
+228
+00:10:24,810 --> 00:10:26,160
+That's all in this video.
+
+229
+00:10:26,160 --> 00:10:27,710
+I will see you in the next one.
+

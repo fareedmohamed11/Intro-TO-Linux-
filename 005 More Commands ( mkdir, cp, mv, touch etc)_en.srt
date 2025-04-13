@@ -1,0 +1,652 @@
+1
+00:00:00,730 --> 00:00:03,380
+OK, currently I am a root user.
+
+2
+00:00:04,090 --> 00:00:05,590
+If I say exit.
+
+3
+00:00:09,170 --> 00:00:14,960
+I will be logged out from root user and I'll go back to my current user, if I hit exit once again,
+
+4
+00:00:15,380 --> 00:00:18,530
+I will be exiting or logging out from vagrant user.
+
+5
+00:00:18,530 --> 00:00:25,540
+So I will come back to my windows machine, vagrant ssh, login again.
+
+6
+00:00:27,180 --> 00:00:32,759
+So as you can see now, I am logged in as vagrant user to my machine, I can do sudo -i and
+
+7
+00:00:32,759 --> 00:00:34,530
+I can switch to root user again.
+
+8
+00:00:35,280 --> 00:00:36,300
+I could exit.
+
+9
+00:00:36,840 --> 00:00:38,580
+I go back to vagrant user.
+
+10
+00:00:39,650 --> 00:00:42,350
+OK, now some very basic file based commands.
+
+11
+00:00:44,100 --> 00:00:51,600
+I'm in my vagrant users home dir and I'm going to create some directories over here, so I will create a dir named
+
+12
+00:00:51,600 --> 00:00:56,010
+dev and I will create multiple directories.
+
+13
+00:00:56,430 --> 00:01:00,780
+One is ops and one as backup directories.
+
+14
+00:01:05,069 --> 00:01:06,930
+So I have now total three degrees.
+
+15
+00:01:07,980 --> 00:01:09,750
+In my home dir.
+
+16
+00:01:11,280 --> 00:01:16,860
+I'm going to use now touch command, touch is a command that will create empty files or it will update files
+
+17
+00:01:16,860 --> 00:01:17,540
+timestamp.
+
+18
+00:01:18,390 --> 00:01:25,440
+So I see touch and I will say testfile.txt
+
+19
+00:01:26,850 --> 00:01:30,690
+The extension is not so important here now, but anyways of will give it.
+
+20
+00:01:33,840 --> 00:01:38,820
+So touch, command, creates empty file, there is nothing in that file, we can create multiple files also
+
+21
+00:01:38,820 --> 00:01:39,330
+like that.
+
+22
+00:01:40,260 --> 00:01:49,110
+I will give name as devopsfile and I'll use curly braces and I will give a range of numbers.
+
+23
+00:01:49,140 --> 00:01:51,120
+1..10
+
+24
+00:01:53,030 --> 00:01:55,220
+And I'll put an extension also, .txt
+
+25
+00:01:57,170 --> 00:02:04,400
+hit enter and now you should see 10 files that start with name devops then the number of the file
+
+26
+00:02:04,730 --> 00:02:06,700
+and then ends with .txt
+
+27
+00:02:07,660 --> 00:02:12,610
+So it does something like multiplication gives you range one to 10.
+
+28
+00:02:13,640 --> 00:02:22,330
+OK, now let's see, copying files will copy a file, cp devopsfile1.txt
+
+29
+00:02:23,770 --> 00:02:25,270
+to dev dir
+
+30
+00:02:26,430 --> 00:02:28,740
+I say dev and give /
+
+31
+00:02:30,040 --> 00:02:34,150
+This is the source, and that is the destination, hit enter.
+
+32
+00:02:35,500 --> 00:02:37,750
+And if I do, ls dev
+
+33
+00:02:40,430 --> 00:02:46,310
+I can see the file is copied there now, I have given the relative part, I am already here.
+
+34
+00:02:46,550 --> 00:02:49,760
+I have dev dir so I can say ls dev/
+
+35
+00:02:49,850 --> 00:02:52,430
+But let's say, I'm in tmp dir
+
+36
+00:02:54,270 --> 00:03:00,810
+And if I want to list dev dir, which is not here, so I'm going to say list and I'll give absolute
+
+37
+00:03:00,810 --> 00:03:05,370
+absolute path. /home/vagrant/dev
+
+38
+00:03:08,010 --> 00:03:09,360
+So both give me the same result.
+
+39
+00:03:09,390 --> 00:03:12,400
+This was a relative path and this is absolute path.
+
+40
+00:03:13,940 --> 00:03:16,550
+Now, going back to my home dir, cd, enter
+
+41
+00:03:18,400 --> 00:03:19,690
+I clear the screen now.
+
+42
+00:03:26,270 --> 00:03:27,590
+And back to my home directory.
+
+43
+00:03:28,670 --> 00:03:30,050
+So that was copying a file.
+
+44
+00:03:30,800 --> 00:03:35,340
+I will show you now how to copy the file with absolute path source and destination board.
+
+45
+00:03:35,360 --> 00:03:39,670
+So let's again go to /tmp dir or any other dir you want.
+
+46
+00:03:40,130 --> 00:03:44,650
+I want to copy devopsfile to /tmp dir again.
+
+47
+00:03:46,120 --> 00:03:57,460
+So I will say cp, absolute path. /home/vagrant/devopsfile2.txt and /home/vagrant/dev
+
+48
+00:03:57,460 --> 00:03:58,900
+/home/vagrant/dev/
+
+49
+00:04:00,860 --> 00:04:05,330
+OK, I've given sources the absolute path and destination as an absolute path.
+
+50
+00:04:08,040 --> 00:04:14,760
+So as long as you don't become comfortable with Linux filesystem, use absolute path, it's a good practice,
+
+51
+00:04:15,240 --> 00:04:21,860
+even if you're located the same place, if you're in home dir, still use the absolute path for
+
+52
+00:04:21,870 --> 00:04:22,340
+few days.
+
+53
+00:04:22,350 --> 00:04:26,130
+So you become comfortable with Linux filesystem structure.
+
+54
+00:04:27,220 --> 00:04:32,470
+OK, there's also one more way to go back to home dir,  cd and using ~ symbol.
+
+55
+00:04:33,960 --> 00:04:39,930
+This should be just below your escape button, it does the same thing tilde ~ means home dir.
+
+56
+00:04:39,930 --> 00:04:42,090
+So vagrant users home directory and back.
+
+57
+00:04:43,960 --> 00:04:51,460
+OK, now let's copy a dir into another directories, so I will copy dev dir, I'm giving the
+
+58
+00:04:51,460 --> 00:04:58,410
+relative path to backup directory again relative path, so I say a backupdir/.
+
+59
+00:04:58,420 --> 00:05:02,970
+So this directly will be copied inside this directly or does it.
+
+60
+00:05:02,980 --> 00:05:03,460
+Let's see.
+
+61
+00:05:04,710 --> 00:05:10,380
+OK, we got some response back, it's an error, actually, ommiting dir, if you do a list to
+
+62
+00:05:10,380 --> 00:05:15,600
+back dir, there is nothing. Try absolute path also for practice
+
+63
+00:05:17,450 --> 00:05:17,950
+Nothing.
+
+64
+00:05:19,000 --> 00:05:20,320
+So that did not work out.
+
+65
+00:05:20,350 --> 00:05:23,900
+That's because you cannot copy directories.
+
+66
+00:05:23,900 --> 00:05:27,610
+If you want to copy dir, you have to use an option called -r
+
+67
+00:05:29,720 --> 00:05:33,680
+And I will say copy dir to back up dir..
+
+68
+00:05:35,580 --> 00:05:41,970
+And that worked, you can do ls backup dir or try with absolute path again, use up Arrow.
+
+69
+00:05:44,420 --> 00:05:49,460
+I'm showing again and again absolute path so you can become comfortable, that's all, if you're already
+
+70
+00:05:49,460 --> 00:05:51,470
+comfortable, use whatever you want.
+
+71
+00:05:51,470 --> 00:05:52,910
+relative path or absolute path
+
+72
+00:05:53,900 --> 00:06:00,740
+OK, now that brings me to the Linux syntax, Linux command syntax, so you have
+
+73
+00:06:00,740 --> 00:06:05,780
+command options and then the arguments.
+
+74
+00:06:05,800 --> 00:06:07,070
+So that is the command we use.
+
+75
+00:06:07,070 --> 00:06:07,340
+Right?
+
+76
+00:06:07,370 --> 00:06:08,960
+So the syntax is like this.
+
+77
+00:06:10,590 --> 00:06:17,520
+First, you have the command, which is cp in this case, and then you have options, you have many
+
+78
+00:06:17,520 --> 00:06:18,010
+options.
+
+79
+00:06:18,030 --> 00:06:20,660
+We'll see how we can find other options also.
+
+80
+00:06:21,270 --> 00:06:22,980
+And then you have arguments.
+
+81
+00:06:26,850 --> 00:06:31,770
+Now, some places you can just use the command like ls, just the command, but there are options also
+
+82
+00:06:31,770 --> 00:06:32,530
+with this command.
+
+83
+00:06:32,550 --> 00:06:35,820
+You can do ls -l for example.
+
+84
+00:06:35,910 --> 00:06:36,390
+We'll see.
+
+85
+00:06:36,390 --> 00:06:37,050
+What is that?
+
+86
+00:06:37,050 --> 00:06:38,120
+It's a long list.
+
+87
+00:06:38,310 --> 00:06:39,840
+It's going to show detailed information.
+
+88
+00:06:40,590 --> 00:06:47,730
+Or you can also give arguments with ls command, like you can give a path of a dir, for example,
+
+89
+00:06:47,970 --> 00:06:48,470
+/tmp dir
+
+90
+00:06:49,680 --> 00:06:50,580
+or a file path
+
+91
+00:06:51,700 --> 00:06:56,730
+But cp command definitely needs to pass arguments without passing arguments cp command will
+
+92
+00:06:56,740 --> 00:06:57,370
+not work.
+
+93
+00:06:57,950 --> 00:07:01,750
+So based on your commands and your need, you will use the right syntax.
+
+94
+00:07:04,070 --> 00:07:09,770
+Now, about the options there for one command, there could be many options and it's not possible to
+
+95
+00:07:09,770 --> 00:07:11,930
+memorize those things and you should not really.
+
+96
+00:07:13,100 --> 00:07:18,890
+Because there is always help available, for example, for cp, you can say cp --help
+
+97
+00:07:18,890 --> 00:07:22,400
+you can use this option, --help and it will show you.
+
+98
+00:07:24,410 --> 00:07:30,520
+First, the usage. how to use this, come on, show you three examples there for cp and you see there
+
+99
+00:07:30,530 --> 00:07:34,670
+a lot of option -a for archive -f for force.
+
+100
+00:07:34,670 --> 00:07:36,020
+-i for interactive.
+
+101
+00:07:36,020 --> 00:07:41,990
+If you want it to ask a question before overwriting any file, it will ask you a question, interactive.
+
+102
+00:07:42,590 --> 00:07:50,690
+And you see there -R, so you have Capitola R, small r ,recursive, so you can use any of these three to copy
+
+103
+00:07:50,690 --> 00:07:52,310
+directories recursively.
+
+104
+00:07:53,710 --> 00:07:58,780
+Mostly, you will see the syntax for the options hyphen one single hyphen if just as single alphabet,
+
+105
+00:07:59,050 --> 00:08:03,970
+but if there is a word, it will be hyphen, hyphen like hyphen, hyphen, recursive, or you can use
+
+106
+00:08:03,970 --> 00:08:10,030
+-r. Now every command will have its own options, SO run --help command and find out
+
+107
+00:08:10,030 --> 00:08:11,350
+your options that you want.
+
+108
+00:08:12,040 --> 00:08:13,800
+Or you can simply Google it.
+
+109
+00:08:14,590 --> 00:08:15,580
+That is also fine.
+
+110
+00:08:16,630 --> 00:08:21,520
+But help will be always at your fingertips, remember that you don't need to memorize these many things.
+
+111
+00:08:22,490 --> 00:08:24,190
+OK, resuming back our work.
+
+112
+00:08:26,040 --> 00:08:33,030
+So you have seen cp, command, let's see now mv command, mv is to move files, so mv and I would like
+
+113
+00:08:33,030 --> 00:08:40,590
+to move devopsfile4 or 3 to ops dir.
+
+114
+00:08:41,940 --> 00:08:42,840
+That's mv.
+
+115
+00:08:43,230 --> 00:08:44,970
+You can check ls ops.
+
+116
+00:08:47,230 --> 00:08:51,160
+If you want to move the director, you don't need to give any special option, I would like to move
+
+117
+00:08:51,760 --> 00:08:54,640
+ops dir, let's say, to dev dir.
+
+118
+00:08:58,230 --> 00:09:03,030
+OK, so it should have been moved now there is no ops here, it should be in the directory.
+
+119
+00:09:05,700 --> 00:09:12,000
+mv command is also used to rename file any file or dir, you can say mv, you can give a
+
+120
+00:09:12,000 --> 00:09:18,900
+source file, let's say a testfile1.txt will name it to testfile22.txt
+
+121
+00:09:21,150 --> 00:09:22,020
+source file, let's say a testfile1.txt will name it to testfile22.txt
+
+122
+00:09:22,020 --> 00:09:22,770
+source file, let's say a testfile1.txt will name it to testfile22.txt
+
+123
+00:09:25,080 --> 00:09:26,460
+OK, that's renaming.
+
+124
+00:09:30,680 --> 00:09:34,820
+A file or a dir, anyways, when we say file, it means any file in Linux.
+
+125
+00:09:35,480 --> 00:09:43,400
+OK, now little regular expression if you want to do multiple things at once, like if I want to copy
+
+126
+00:09:43,400 --> 00:09:51,950
+all the text file to a text dir. I will create a dir called textdir and I would like to move all the file that ends with
+
+127
+00:09:52,130 --> 00:10:01,160
+.text to textdir so I can use mv  * ,  star * means everything in Linux.
+
+128
+00:10:01,170 --> 00:10:04,600
+So when I say here * that means everything in the current dir.
+
+129
+00:10:04,610 --> 00:10:11,120
+But I'm going to say everything that ends with .txt, *.txt, move it to textdir.
+
+130
+00:10:17,090 --> 00:10:18,050
+You see that, that's gone.
+
+131
+00:10:18,080 --> 00:10:19,730
+Let's go to the textdir now.
+
+132
+00:10:21,460 --> 00:10:27,610
+rm command, rm is to remove files, so you say, rm, you can give a file name.
+
+133
+00:10:29,150 --> 00:10:35,540
+Let's say devopsfile10.txt, removes. Lets create some dir here. 
+
+134
+00:10:36,830 --> 00:10:38,600
+Dir named mobile
+
+135
+00:10:40,640 --> 00:10:46,850
+Now, if you want to remove the directory, rm and the dir path, and it's going to throw you an error
+
+136
+00:10:46,850 --> 00:10:50,450
+Because to remove the directory, you have to use an option -r
+
+137
+00:10:50,450 --> 00:10:54,110
+Now this is -r option for rm command.
+
+138
+00:10:54,110 --> 00:10:55,820
+cp command also
+
+139
+00:10:55,830 --> 00:10:57,500
+have -r option
+
+140
+00:10:58,830 --> 00:11:00,160
+It removes a directory.
+
+141
+00:11:01,160 --> 00:11:06,000
+Gone, if you want to remove everything, let's create a few more things here.
+
+142
+00:11:06,020 --> 00:11:07,610
+I'm going to clear the screen now.
+
+143
+00:11:11,220 --> 00:11:14,520
+Created some directory, testdir{1.5}
+
+144
+00:11:17,440 --> 00:11:24,280
+testdir{1..5}, so I have five directories and some files, I want to clear everything I want to delete
+
+145
+00:11:24,280 --> 00:11:30,700
+everything. I can say rm -r and I can say *, which is a very dangerous command, by the way.
+
+146
+00:11:31,150 --> 00:11:34,770
+It's going to remove everything from your current working directly.
+
+147
+00:11:34,900 --> 00:11:37,030
+So be careful when you execute this command.
+
+148
+00:11:37,450 --> 00:11:40,180
+And sometimes people use f option also to force.
+
+149
+00:11:40,720 --> 00:11:42,250
+So it does not ask any question.
+
+150
+00:11:43,540 --> 00:11:44,990
+And you see everything is gone.
+
+151
+00:11:45,010 --> 00:11:50,020
+Now if you're not careful and if you're not in the right directory, let's say by mistake, you run
+
+152
+00:11:50,020 --> 00:11:52,770
+this command in your home directory.
+
+153
+00:11:53,920 --> 00:11:59,170
+And then it's going to remove everything from your home directory or imagine if you are in /etc dir
+
+154
+00:11:59,170 --> 00:12:04,900
+or some important other directory, server data and this command can delete everything and there is no
+
+155
+00:12:04,900 --> 00:12:05,970
+rolling back here.
+
+156
+00:12:06,280 --> 00:12:07,240
+There is no trash.
+
+157
+00:12:07,240 --> 00:12:08,740
+There is no recycle bin here.
+
+158
+00:12:09,550 --> 00:12:15,490
+If you want to get your files back now, then you have to do disk hard disk restoration, which could
+
+159
+00:12:15,490 --> 00:12:20,580
+be complicated and not 100 percent assurance that you'll get back all your files.
+
+160
+00:12:20,590 --> 00:12:23,770
+So be careful before you delete anything in Linux system.
+
+161
+00:12:25,590 --> 00:12:31,350
+So that's all in this video about this very, very basic commands, you can run your history command.
+
+162
+00:12:31,350 --> 00:12:33,380
+And see all the commands that you executed.
+
+163
+00:12:34,550 --> 00:12:38,660
+If you're done reviewing your work, if you're done practicing, then join me in the next video.
+

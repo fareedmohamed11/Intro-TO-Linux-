@@ -1,0 +1,716 @@
+1
+00:00:00,540 --> 00:00:06,090
+Software management or generally in Linux, we call them as packages.
+
+2
+00:00:07,240 --> 00:00:14,290
+So so far in your life, you must have installed or uninstall so many software on your Windows computer
+
+3
+00:00:14,290 --> 00:00:16,690
+or MacOS or your smartphones.
+
+4
+00:00:18,150 --> 00:00:24,710
+In the next, there are very different different methods of installing or setting up a package or software,
+
+5
+00:00:25,560 --> 00:00:30,090
+we're going to start with very basic one and then we're going to see different other methods of setting
+
+6
+00:00:30,090 --> 00:00:30,800
+up software.
+
+7
+00:00:31,470 --> 00:00:31,950
+So.
+
+8
+00:00:34,670 --> 00:00:37,310
+Log into your Linux VM and switch to root user.
+
+9
+00:00:38,330 --> 00:00:44,630
+And first, we are going to hit a command called tree. tree is a very interesting command, it shows directory
+
+10
+00:00:44,630 --> 00:00:51,950
+in a tree structure, like if you want to see the /var/log directory structure inside that subdirectories
+
+11
+00:00:51,950 --> 00:00:56,750
+and files, it will show it in a tree format, but it says command not found.
+
+12
+00:00:57,410 --> 00:00:59,450
+And no, don't try to use yum command here
+
+13
+00:01:00,140 --> 00:01:03,240
+We are going to see first a very manual way of setting up a package.
+
+14
+00:01:04,129 --> 00:01:05,390
+So open your browser.
+
+15
+00:01:06,930 --> 00:01:12,570
+And we'll search for the tree package on the Internet, download it and install it so you can just say
+
+16
+00:01:12,570 --> 00:01:14,070
+tree rpm
+
+17
+00:01:15,020 --> 00:01:15,890
+And hit enter.
+
+18
+00:01:17,840 --> 00:01:24,320
+And you should see various repositories like there is CentOS.pkgs.org and there is rpmfind
+
+19
+00:01:24,320 --> 00:01:27,080
+rpmseek, rpmpbone
+
+20
+00:01:28,470 --> 00:01:34,010
+So there are so many repositories on the Internet from where you can find and download the R.P.M.,
+
+21
+00:01:34,620 --> 00:01:36,960
+so I'll go with this R.P.M Find for now.
+
+22
+00:01:36,960 --> 00:01:37,740
+Let's click on it.
+
+23
+00:01:39,980 --> 00:01:46,250
+So it's pretty simple here, you can make a search and you should find the R.P.M. for tree, and there
+
+24
+00:01:46,250 --> 00:01:50,570
+are many rpm based operating system like you have fedora you have.
+
+25
+00:01:51,660 --> 00:01:58,540
+Maggie, you have open Susie, so R.P.M. packaging will be different for different different flavors.
+
+26
+00:01:58,770 --> 00:02:05,500
+We are looking for CentOS, so let's find CentOS , thers centos8, centos7
+
+27
+00:02:06,060 --> 00:02:09,120
+So since we have centos seven, we have this R.P.M..
+
+28
+00:02:09,120 --> 00:02:15,900
+I can click on it and it will download it in my local machine, but I want it to be downloaded in the
+
+29
+00:02:15,900 --> 00:02:16,620
+Linux machine.
+
+30
+00:02:16,620 --> 00:02:17,370
+So I'm going to right click
+
+31
+00:02:17,370 --> 00:02:25,020
+Copy link address and go to my shell and I'm going to use a command called as curl.
+
+32
+00:02:26,110 --> 00:02:32,350
+Which will be by default in your system, linux system, you say curl and paste the command
+
+33
+00:02:33,470 --> 00:02:35,720
+And you have to use -o
+
+34
+00:02:36,890 --> 00:02:44,930
+So curl will access this link, -o saying that output of this link should be saved to a file and
+
+35
+00:02:44,930 --> 00:02:48,530
+you can give a name to a file, will give the same name as the R.P.M. name.
+
+36
+00:02:49,600 --> 00:02:50,440
+And hit enter.
+
+37
+00:02:52,080 --> 00:02:57,570
+OK, if you do a ls now, you should find the R.P.M. in your current working directly where you executed
+
+38
+00:02:57,570 --> 00:02:57,920
+the curl command.
+
+39
+00:02:57,930 --> 00:02:58,320
+.
+
+40
+00:02:59,620 --> 00:03:07,810
+And to install it, we have the command R.P.M. -i I used to install, v for verbose, which means printing it
+
+41
+00:03:07,810 --> 00:03:14,650
+h is for  human readable, so print it in a human readable format when you're installing and you give
+
+42
+00:03:14,650 --> 00:03:15,850
+the path of the R.P.M..
+
+43
+00:03:18,440 --> 00:03:24,020
+And you will see that quickly got installed because really a very small package now you can have the
+
+44
+00:03:24,020 --> 00:03:24,740
+tree command.
+
+45
+00:03:25,310 --> 00:03:26,870
+tree /var/log
+
+46
+00:03:28,310 --> 00:03:31,960
+OK, you can see now the directress in a tree structure.
+
+47
+00:03:33,980 --> 00:03:41,210
+So that was just one example of installing an R.P.M. in a Red Hat Centos machine, and now maybe we're
+
+48
+00:03:41,220 --> 00:03:43,200
+excited and you want to install more software.
+
+49
+00:03:43,220 --> 00:03:51,320
+I am looking for a software package called httpd, which is a Web server package.
+
+50
+00:03:52,370 --> 00:03:57,710
+And will be seeing how it works, but right now we just worried about installing it, so we'll find
+
+51
+00:03:57,710 --> 00:04:00,890
+the right R.P.M. for cento seven that's there.
+
+52
+00:04:01,250 --> 00:04:03,710
+So I click copy, link, address.
+
+53
+00:04:04,340 --> 00:04:05,360
+I do the same thing.
+
+54
+00:04:05,360 --> 00:04:08,540
+I say wget, sorry, curl
+
+55
+00:04:09,610 --> 00:04:14,050
+And I paste the link, you can also use shift insert in gitbash to paste.
+
+56
+00:04:15,610 --> 00:04:24,430
+-o and copy the name of the file and just paste it. You select it, it will be copied,
+
+57
+00:04:24,760 --> 00:04:27,160
+you do a middle click and it will be pasted.
+
+58
+00:04:30,400 --> 00:04:36,990
+OK, you should have the R.P.M. now and now, let's try to install it, rpm -ivh httpd
+
+59
+00:04:39,660 --> 00:04:42,400
+It does not work, It says failed dependencies.
+
+60
+00:04:42,420 --> 00:04:46,470
+It's saying that you need to install these other RPM's.
+
+61
+00:04:47,610 --> 00:04:54,020
+And once you install this, then only you can install this as httpd rpm, so there is a dependency.
+
+62
+00:04:54,540 --> 00:04:55,890
+Now, there is just 4 dependency.
+
+63
+00:04:55,890 --> 00:04:59,700
+You can really find those download and install them, and then you can install httpd
+
+64
+00:05:00,540 --> 00:05:03,070
+What what if you have hundreds of dependencies?
+
+65
+00:05:03,510 --> 00:05:08,610
+Yeah, and that's the case so many times because in Linux principle, we understood we have small,
+
+66
+00:05:08,610 --> 00:05:15,750
+single purpose programs right now that are chained together to perform complex operations.
+
+67
+00:05:16,680 --> 00:05:22,320
+So you will very, very regularly hit this dependencies problem and that can be solved very easily.
+
+68
+00:05:23,790 --> 00:05:28,740
+Like we have rpm, which can install the package or you can even uninstall package.
+
+69
+00:05:28,740 --> 00:05:33,000
+You have other package managers also like yum for RedHat.
+
+70
+00:05:33,840 --> 00:05:39,750
+Before we go there, let's see some more option in R.P.M. rpm --help
+
+71
+00:05:45,060 --> 00:05:55,020
+Like you have -e to erase or you have -q to query. -a for all the files. Like query or verify all the
+
+72
+00:05:55,020 --> 00:05:55,530
+files.
+
+73
+00:05:55,920 --> 00:05:57,240
+So let's see some option.
+
+74
+00:05:57,240 --> 00:05:59,120
+rpm -qa
+
+75
+00:05:59,910 --> 00:06:01,890
+This will list all the rpms.
+
+76
+00:06:03,570 --> 00:06:07,680
+OK, maybe you're looking for some r.p.m. if you want to see whether it's installed or not.
+
+77
+00:06:07,710 --> 00:06:10,860
+Again, just a pipe grep like tree.
+
+78
+00:06:12,630 --> 00:06:19,470
+And if you want it, is that you can see rpm -e and then you can give the rpm name.
+
+79
+00:06:19,470 --> 00:06:20,100
+it will be gone.
+
+80
+00:06:21,740 --> 00:06:23,130
+Erased, now tree command
+
+81
+00:06:23,150 --> 00:06:24,110
+is not there.
+
+82
+00:06:25,440 --> 00:06:31,320
+Like that, there are many options with rpm. rpm -ivh  we have seen to install or capital U
+
+83
+00:06:31,320 --> 00:06:35,550
+to upgrade a package. e is to remove or erase
+
+84
+00:06:37,400 --> 00:06:43,460
+-ev --nodeps, so it's going to erase the installed package without checking its dependencies.
+
+85
+00:06:44,890 --> 00:06:46,830
+-qa to  to list all the RPM's.
+
+86
+00:06:47,410 --> 00:06:55,360
+-qi If you want more information, or qf, if you want to find out what package a file belongs to, so
+
+87
+00:06:55,360 --> 00:06:59,770
+you see some file and you want to see which package does this file belongs to.
+
+88
+00:06:59,920 --> 00:07:07,870
+OK, you can say rpm -qf, qc to list configuration of files for a package. That can
+
+89
+00:07:07,870 --> 00:07:13,480
+come handy when you're doing some troubleshooting with package management, but the better option for
+
+90
+00:07:13,480 --> 00:07:16,630
+managing your package is yum yum.
+
+91
+00:07:17,690 --> 00:07:18,750
+Let's see how that works.
+
+92
+00:07:19,610 --> 00:07:24,590
+So as we go on the Internet, search for R.P.M., download and install, instead of that, you can use
+
+93
+00:07:24,590 --> 00:07:26,950
+yum, which will do all that for you.
+
+94
+00:07:26,960 --> 00:07:33,890
+It will automate the process of package installation or management so that it does by using some configuration
+
+95
+00:07:33,890 --> 00:07:34,310
+file.
+
+96
+00:07:35,640 --> 00:07:39,120
+/etc/yum.repos.d, in this dir.
+
+97
+00:07:40,680 --> 00:07:47,220
+You should see some files, these files points to some repositories on the Internet, like, for example,
+
+98
+00:07:47,220 --> 00:07:48,990
+CentOS-base.repo
+
+99
+00:07:50,990 --> 00:07:56,360
+So it will have information of the repositories, so when you install any linux operating system, it will
+
+100
+00:07:56,450 --> 00:08:03,710
+always have access to some repositories. Like this is one repository information, mirrorlist, and that's
+
+101
+00:08:03,710 --> 00:08:06,020
+the url.
+
+102
+00:08:06,500 --> 00:08:12,410
+Like that all the files will have some repository information from where your yum can search for the
+
+103
+00:08:12,410 --> 00:08:16,820
+software, download and install and that also with dependencies.
+
+104
+00:08:17,990 --> 00:08:25,760
+OK, so like when I say yum search httpd, so I'm searching for a package named httpd in all those
+
+105
+00:08:25,760 --> 00:08:26,630
+repositories.
+
+106
+00:08:29,370 --> 00:08:35,539
+OK, so there are so many package that has a name like httpd-devel, which is for Devlopment httpd,
+
+107
+00:08:35,549 --> 00:08:40,650
+just like that, httpd manual, httpd tools and many, many other packages.
+
+108
+00:08:43,000 --> 00:08:46,910
+So if I want to install that, I'll simply say, yum, install a httpd.
+
+109
+00:08:50,780 --> 00:08:56,420
+So it turns out to be it's going to install a httpd plus its dependencies also, so it's saying
+
+110
+00:08:56,420 --> 00:09:00,070
+I'm installing this four dependencies and then this package.
+
+111
+00:09:00,080 --> 00:09:03,950
+So download and install with a dependency and I'm good with that.
+
+112
+00:09:03,960 --> 00:09:05,530
+I'll say y for.
+
+113
+00:09:05,540 --> 00:09:06,080
+Yes.
+
+114
+00:09:08,010 --> 00:09:10,020
+And that's it, it's installed.
+
+115
+00:09:12,800 --> 00:09:18,070
+If you happen to remove that, you can just see yum remove httpd
+
+116
+00:09:21,190 --> 00:09:22,840
+And I said, yes, remove that.
+
+117
+00:09:25,110 --> 00:09:29,820
+So now downloading and installing is very easy, Just yum install and the package name.
+
+118
+00:09:34,060 --> 00:09:39,700
+OK, now let's say I want to install a package, yum install jenkins.
+
+119
+00:09:41,460 --> 00:09:47,940
+And it says error, it has nothing to do because Jenkins package is not available in any of the repositories
+
+120
+00:09:48,420 --> 00:09:50,460
+that are available here.
+
+121
+00:09:52,470 --> 00:09:59,490
+So if it's not there, then you can always search for the Internet, you should find the vendor documentation
+
+122
+00:09:59,490 --> 00:10:02,740
+there, they'll mention the steps to install a particular package.
+
+123
+00:10:02,760 --> 00:10:04,580
+So let's take Jenkins' as an example.
+
+124
+00:10:05,990 --> 00:10:09,380
+And let's search for install Jenkins.
+
+125
+00:10:11,250 --> 00:10:14,400
+And I'm going do the official documentation, which is always preferred.
+
+126
+00:10:15,830 --> 00:10:22,130
+jenkins.io and it should have method of installing Jenkins in different, different environment.
+
+127
+00:10:22,160 --> 00:10:25,520
+You have Linux Mac OS, so let's click on Linux.
+
+128
+00:10:27,210 --> 00:10:32,220
+So scroll down, you have steps to install it on Debian machines, which we'll be doing later.
+
+129
+00:10:33,460 --> 00:10:36,130
+If you scroll down, see, you install Java.
+
+130
+00:10:36,990 --> 00:10:38,400
+method for fedora.
+
+131
+00:10:39,630 --> 00:10:42,000
+And or Red Hat/ CentOS, yes, we found that.
+
+132
+00:10:42,600 --> 00:10:44,070
+OK, so these are the commands.
+
+133
+00:10:45,570 --> 00:10:51,690
+So it's saying sudo wget. wget  is going to be working like curl, but first you need to have wget,
+
+134
+00:10:51,980 --> 00:10:56,400
+so let's install wget first and you can say that is a dependency for us.
+
+135
+00:10:56,850 --> 00:10:58,350
+yum install wget
+
+136
+00:11:02,880 --> 00:11:04,530
+So it is already installed.
+
+137
+00:11:07,200 --> 00:11:12,840
+So saying wget -o, output should be in this file.
+
+138
+00:11:13,940 --> 00:11:20,450
+And it's just accessing this link, a backward slash there means you can give it in, command in two lines
+
+139
+00:11:20,450 --> 00:11:22,310
+lines, so I just copy that.
+
+140
+00:11:25,010 --> 00:11:27,740
+So what this first command is doing, it is going to create.
+
+141
+00:11:29,640 --> 00:11:32,820
+This file with the repository detail.
+
+142
+00:11:34,330 --> 00:11:36,400
+It created the repository details over here.
+
+143
+00:11:36,780 --> 00:11:37,560
+OK, nice.
+
+144
+00:11:37,590 --> 00:11:40,370
+Now let's check the next command, rpm import.
+
+145
+00:11:40,830 --> 00:11:41,750
+So there is a key.
+
+146
+00:11:41,760 --> 00:11:45,690
+Sometimes you will have a key for a repository.
+
+147
+00:11:46,050 --> 00:11:48,810
+So you may have R.P.M. import command and a link.
+
+148
+00:11:50,100 --> 00:11:53,670
+So this key will provide us access to this repository.
+
+149
+00:11:56,540 --> 00:12:01,670
+And then yum upgrade it is saying, which is going to upgrade all the packages, which, if you want to skip.
+
+150
+00:12:02,610 --> 00:12:04,410
+Because that's going to take a very long time.
+
+151
+00:12:06,910 --> 00:12:09,850
+So it is Yum, install Jenkins and a Java.
+
+152
+00:12:11,040 --> 00:12:12,270
+Especially JDK.
+
+153
+00:12:13,980 --> 00:12:21,840
+Let's try that, so now Jenkins will be installed from this repository and then you have Java that will
+
+154
+00:12:21,840 --> 00:12:26,610
+be installed from our regular repositories and I'm going to say -y
+
+155
+00:12:28,360 --> 00:12:33,910
+-y so it does not ask me any question, yes or no, you see, there're like sixty 65 dependencies.
+
+156
+00:12:35,730 --> 00:12:38,850
+Which is installing Java and then it's installing Jenkins'.
+
+157
+00:12:40,070 --> 00:12:40,450
+Right.
+
+158
+00:12:40,490 --> 00:12:45,500
+So, you see, it's easy to do it with yum, but then yum should have access to the right repository
+
+159
+00:12:45,500 --> 00:12:47,300
+to download and install your software.
+
+160
+00:12:48,410 --> 00:12:54,080
+All right, so there is a command to directly create that file, sometimes you will see instruction
+
+161
+00:12:54,080 --> 00:12:59,360
+to open the file and put some content for the repository yum upgrade command.
+
+162
+00:12:59,370 --> 00:13:04,130
+You see, it's going to upgrade all the packages if you run a yum upgrade.
+
+163
+00:13:06,630 --> 00:13:13,080
+It's going to read all your packages and match it with the latest packages, and it will say there is
+
+164
+00:13:13,080 --> 00:13:19,670
+an update available so total 127 packages can be updated and one new package will be installed.
+
+165
+00:13:19,890 --> 00:13:25,260
+And this is going to take some time, but it is always preferred to update all your packages because
+
+166
+00:13:25,260 --> 00:13:30,930
+it may have security vulnerability or performance issue that can be fixed by this new patches.
+
+167
+00:13:31,910 --> 00:13:33,560
+And I'm going to say y.
+
+168
+00:13:34,870 --> 00:13:36,160
+And it's going to take some time.
+
+169
+00:13:37,510 --> 00:13:43,060
+OK, so yum search to search for a package, install to install a package, you have reinstall sometimes when
+
+170
+00:13:43,060 --> 00:13:48,730
+you're installing things, breaks, network go down and the package is not installed properly, you
+
+171
+00:13:48,730 --> 00:13:55,450
+can always reinstall. yum remove to remove a package yum update to update all the packages.
+
+172
+00:13:56,080 --> 00:13:59,280
+Or you can specify a package name, yum update and a package name.
+
+173
+00:13:59,950 --> 00:14:03,940
+You have group of softwares also like you have development group.
+
+174
+00:14:05,380 --> 00:14:09,760
+You can say, yum group list, it will show you group packages and then you can if you want to install
+
+175
+00:14:09,760 --> 00:14:14,470
+group packages, you can see a young group install and a group name which will install the group of
+
+176
+00:14:14,470 --> 00:14:21,400
+packages. yum  repolist to list all the enabled repositories that you have access to.
+
+177
+00:14:22,640 --> 00:14:27,580
+Sometimes you need to run this, command, yum clean all, which is going to clean clear the cache.
+
+178
+00:14:28,630 --> 00:14:35,140
+of your repository. yum history, to see the previous history of Yum. yum info packagename will
+
+179
+00:14:35,140 --> 00:14:37,510
+give you information about a particular package.
+

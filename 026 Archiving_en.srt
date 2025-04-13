@@ -1,0 +1,272 @@
+1
+00:00:00,550 --> 00:00:04,330
+Hello and welcome in this video, we will be talking about archiving.
+
+2
+00:00:05,910 --> 00:00:09,480
+So there's so many times where you need to archive files and directories.
+
+3
+00:00:10,460 --> 00:00:16,219
+Especially when you want to take its back up or if you have a back up, you want to restore from that,
+
+4
+00:00:16,219 --> 00:00:20,960
+or if you have some files that's coming from the Internet or from somewhere else, it's an archive format.
+
+5
+00:00:20,980 --> 00:00:22,140
+You want to unarchive it.
+
+6
+00:00:23,030 --> 00:00:28,760
+So let's take an example, will go to /var/log dir and let's see if you want to archive all the
+
+7
+00:00:28,760 --> 00:00:32,090
+logs or let's see, we just want to archive the Jenkins logs.
+
+8
+00:00:34,230 --> 00:00:42,210
+Now there is a file jenkins', so mostly we do archiving of log files to move it to somewhere else so
+
+9
+00:00:42,210 --> 00:00:45,180
+we can clear the log files and save the disk space.
+
+10
+00:00:46,630 --> 00:00:52,930
+So I'm in a /var/log dir and I am going to archive the Jenkins' dir, so first we're going
+
+11
+00:00:52,930 --> 00:00:56,800
+to see with tar command
+
+12
+00:00:58,530 --> 00:01:10,290
+tar -czvf, c is to create, z is to compress, so archiving and then compressing it, v
+
+13
+00:01:10,290 --> 00:01:12,500
+is for  verbose and f is for file.
+
+14
+00:01:13,020 --> 00:01:15,750
+And I first give the archive name.
+
+15
+00:01:15,760 --> 00:01:19,080
+So I'm going to say jenkins_
+
+16
+00:01:19,080 --> 00:01:20,310
+I'll give some timestamp.
+
+17
+00:01:24,160 --> 00:01:32,650
+.tar.gz, which is the extension to represents a Tarball, gz represent, it was compressed
+
+18
+00:01:32,650 --> 00:01:34,660
+with z option, gunzip.
+
+19
+00:01:36,030 --> 00:01:37,110
+And then you give.
+
+20
+00:01:38,130 --> 00:01:42,780
+the path, which we really want to archive and compress, so that's Jenkins dir.
+
+21
+00:01:44,950 --> 00:01:46,270
+And you should see then.
+
+22
+00:01:47,870 --> 00:01:56,510
+Lets run ls -ltr, so it sorts properly, we see the Tarball there and this is called as tarball and we
+
+23
+00:01:56,510 --> 00:02:00,990
+can run a file, command and see, even if it does not have an extension, you can run file, command
+
+24
+00:02:00,990 --> 00:02:03,640
+and see what kind of file it is, Right?
+
+25
+00:02:03,740 --> 00:02:04,550
+It's gunzipped.
+
+26
+00:02:04,550 --> 00:02:06,200
+compressed data.
+
+27
+00:02:08,889 --> 00:02:18,190
+OK, let's see how we can unarchive it, so let's move it to /tmp/ dir and let's go to /tmp/ dir
+
+28
+00:02:22,980 --> 00:02:29,970
+So that's my tarball there, I want to extract it, so tar -x is for extract, c for will create,
+
+29
+00:02:29,970 --> 00:02:32,910
+x is for extract and the same options zvf
+
+30
+00:02:35,660 --> 00:02:36,860
+And if you give the path
+
+31
+00:02:39,040 --> 00:02:42,010
+And then you should see the Jenkins' dir there.
+
+32
+00:02:43,930 --> 00:02:48,760
+If you want to extract it somewhere else so you can use a -C, Capital C option and let's say
+
+33
+00:02:48,760 --> 00:02:50,710
+I want to extract /opt dir
+
+34
+00:02:52,320 --> 00:02:53,650
+So let's see /opt dir
+
+35
+00:02:55,530 --> 00:03:02,640
+You should see the jenkins dir there, extracted. So tar is legacy or old archiving command
+
+36
+00:03:02,640 --> 00:03:06,750
+of Linux, and it is still used. There are lot of options for it.
+
+37
+00:03:07,440 --> 00:03:11,100
+Its feature, Rich Tool.
+
+38
+00:03:12,450 --> 00:03:18,870
+So the top you should see some examples of tar command, you can see all the options you can compare to
+
+39
+00:03:18,870 --> 00:03:20,460
+tarballs by using -d
+
+40
+00:03:21,980 --> 00:03:24,170
+Or you can update an existing Tarbell.
+
+41
+00:03:25,480 --> 00:03:31,720
+You have more compression option you can use -a for auto compress, this -j for bzip2
+
+42
+00:03:31,720 --> 00:03:34,660
+-J for xz
+
+43
+00:03:34,690 --> 00:03:40,990
+These are other compression method like we used z for gunzip, you have bzip and you have xz.
+
+44
+00:03:40,990 --> 00:03:42,070
+Also for compression.
+
+45
+00:03:42,850 --> 00:03:48,160
+We have seen, -C to mention the dir, where we want to extract and many more.
+
+46
+00:03:48,160 --> 00:03:50,950
+Such interesting options really feature rich.
+
+47
+00:03:53,550 --> 00:03:56,420
+But much more simpler is really a zip command.
+
+48
+00:03:58,440 --> 00:04:03,340
+So let's do the same thing with zip command, zip command will not be available to you to install it.
+
+49
+00:04:03,370 --> 00:04:06,930
+So I'm going to say yum, install zip and unzip both.
+
+50
+00:04:10,240 --> 00:04:18,640
+And lets clear the screen, so same operation, I'm going to say zip -r, you have to give if you are 
+
+51
+00:04:18,640 --> 00:04:27,220
+compressing a directory or  archiving directory. and I say httpd_06122020
+
+52
+00:04:27,640 --> 00:04:29,250
+12, 20, 20.
+
+53
+00:04:29,260 --> 00:04:31,990
+It's a back up, or it's a tarballs.
+
+54
+00:04:31,990 --> 00:04:38,260
+I would like to give a timestamp and then dot zip and then give the dir that you want to extract
+
+55
+00:04:38,980 --> 00:04:39,370
+Oh
+
+56
+00:04:39,370 --> 00:04:40,330
+Not this one.
+
+57
+00:04:40,550 --> 00:04:49,690
+I will extract the Jenkins' Jenkins underscore zero six one two, any dir that you would like
+
+58
+00:04:49,690 --> 00:04:50,560
+to archive.
+
+59
+00:04:54,530 --> 00:04:54,970
+Right.
+
+60
+00:05:00,380 --> 00:05:08,730
+Right, so that's our archive and same thing, let's move it to and this time let's move it to /opt dir.
+
+61
+00:05:09,750 --> 00:05:11,790
+OK, let's go to /opt dir.
+
+62
+00:05:15,430 --> 00:05:19,730
+Now, you have existing Jenkins dir over here, which it will try to overwrite
+
+63
+00:05:19,750 --> 00:05:27,340
+I'm going to remove that dirs and I'll say unzip Jenkins dot zip.
+
+64
+00:05:27,970 --> 00:05:29,510
+So unzip is just one zip
+
+65
+00:05:32,550 --> 00:05:39,300
+So you have two General method for archiving, tar and zip and will be using both, you know, of course,
+
+66
+00:05:39,300 --> 00:05:40,230
+when the need comes.
+
+67
+00:05:40,950 --> 00:05:45,330
+So that's all in archiving practice this command.
+
+68
+00:05:45,570 --> 00:05:47,850
+And I will see you then in the next video.
+

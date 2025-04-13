@@ -1,0 +1,1124 @@
+1
+00:00:00,460 --> 00:00:09,580
+Filters and a redirections in this video, we will be talking about how to get data by filtering out,
+
+2
+00:00:09,590 --> 00:00:17,800
+should I say, get the right data for me, and then also redirecting that data to a file or a program to
+
+3
+00:00:17,800 --> 00:00:19,060
+process more further.
+
+4
+00:00:19,060 --> 00:00:23,890
+If you really want to be smart in Linux, you should be very good in filtering and redirection.
+
+5
+00:00:24,250 --> 00:00:26,610
+This is also very helpful in scripting.
+
+6
+00:00:27,010 --> 00:00:28,390
+So we're going to see some filtering.
+
+7
+00:00:28,390 --> 00:00:28,780
+command
+
+8
+00:00:28,780 --> 00:00:33,870
+And then we're also going to talk about input output, redirections like filtering, grep command
+
+9
+00:00:34,090 --> 00:00:37,060
+grep command to find some text from the files.
+
+10
+00:00:37,980 --> 00:00:42,120
+Less command, more command, which are a reader of the files.
+
+11
+00:00:42,570 --> 00:00:46,830
+Head or tail command to see the first in line or last 10 lines.
+
+12
+00:00:49,510 --> 00:00:52,960
+Getting a particular column from a file by using Cut Command.
+
+13
+00:00:54,000 --> 00:00:58,770
+Search and replace file content by using sed or even vim editor.
+
+14
+00:01:00,230 --> 00:01:08,330
+We'll see then redirecting output to a file, redirecting standard output and redirecting error, also
+
+15
+00:01:08,810 --> 00:01:10,070
+appending the content.
+
+16
+00:01:11,620 --> 00:01:19,720
+Or  redirecting all kinds of output to file. We will see piping will see pipe and we'll see how we can use
+
+17
+00:01:19,720 --> 00:01:25,960
+the output of a command as an input to other command or passing instruction to the next command, which
+
+18
+00:01:25,960 --> 00:01:27,600
+will do some operation for us.
+
+19
+00:01:27,670 --> 00:01:34,840
+We also see how to find the file with its name and some other parameters and a few more tips and tricks
+
+20
+00:01:34,840 --> 00:01:36,490
+of system administrators.
+
+21
+00:01:37,890 --> 00:01:45,150
+So let's learn them one by one, so I'm in linux vm I'm going to do sudo -i to become
+
+22
+00:01:45,150 --> 00:01:45,890
+root user.
+
+23
+00:01:46,530 --> 00:01:50,580
+Here we have a file anaconda-ks.cfg, we have seen this file previously.
+
+24
+00:01:50,580 --> 00:01:53,010
+We are going to do some operations on this file.
+
+25
+00:01:54,660 --> 00:01:57,600
+If you wish to use any other file, that is also fine.
+
+26
+00:01:58,570 --> 00:02:04,830
+So I have a file anaconda-ks.cfg and I am looking for a text in that file, whether it exists or not,
+
+27
+00:02:04,840 --> 00:02:12,940
+so I have a command called grep and I'm going to say grep firewall, basically look for a text called
+
+28
+00:02:12,940 --> 00:02:21,010
+firewall in the file. So, command what you want to search and the file path, hit enter
+
+29
+00:02:21,670 --> 00:02:25,090
+and it should show me the line which contains the word firewall.
+
+30
+00:02:26,270 --> 00:02:33,380
+Now, Linux is case sensitive, so you have also there capital Firewall, capital. Both are different.
+
+31
+00:02:34,100 --> 00:02:38,600
+if you want to ignore the case sensitivity, you can use -i
+
+32
+00:02:39,460 --> 00:02:44,350
+So it will show you all the content or all the lines that contains the word firewall, even if it's
+
+33
+00:02:44,350 --> 00:02:51,970
+small or capital. Let's edit this file and let's put somewhere some content. We will say fire and w
+
+34
+00:02:51,970 --> 00:02:59,470
+say W capital firewall is off in this machine.
+
+35
+00:02:59,920 --> 00:03:00,730
+Just some text.
+
+36
+00:03:01,630 --> 00:03:03,160
+And I want to save and quit this.
+
+37
+00:03:05,920 --> 00:03:12,490
+Now, if I do grep -i firewall, small capital, whatever, it's going to show me all the lines
+
+38
+00:03:12,490 --> 00:03:14,070
+that contains the word firewall.
+
+39
+00:03:14,350 --> 00:03:18,030
+So here f is capital, here f is small, here w is capital.
+
+40
+00:03:18,850 --> 00:03:20,430
+So all of that not.
+
+41
+00:03:20,440 --> 00:03:22,810
+I'm just giving input over here.
+
+42
+00:03:23,760 --> 00:03:26,280
+of this file, when you talk about input.
+
+43
+00:03:28,100 --> 00:03:33,140
+Your command will have an input redirection symbol like this, which is invisible.
+
+44
+00:03:33,590 --> 00:03:38,570
+So basically what's happening is this file is coming as an input for this command.
+
+45
+00:03:40,350 --> 00:03:46,140
+You see the same result, so that's by default, you don't need to mention it, that's input redirection.
+
+46
+00:03:47,070 --> 00:03:48,270
+that's just about one file.
+
+47
+00:03:48,270 --> 00:03:51,760
+But what if I'm looking for multiple files.
+
+48
+00:03:53,080 --> 00:04:00,700
+Yeah, I'm looking for content in the current working directory, all right, so I can see grep firewall,
+
+49
+00:04:00,700 --> 00:04:08,710
+I'll use -i  here and I will mention, I can mention, I can do star, which will mean all the
+
+50
+00:04:08,710 --> 00:04:10,020
+files in the current dir.
+
+51
+00:04:10,660 --> 00:04:11,470
+So let's do that.
+
+52
+00:04:13,170 --> 00:04:20,019
+So it shows the file name, so you have three lines from anaconda-ks.cfg, from orignal-ks.cfg
+
+53
+00:04:20,040 --> 00:04:21,870
+also you have one line which matches.
+
+54
+00:04:23,070 --> 00:04:26,710
+But for a dir, its throwing an error, devopsdir: Is a directory
+
+55
+00:04:26,910 --> 00:04:31,650
+So it is not going to get into the directory if you wanted to get into the directory.
+
+56
+00:04:34,610 --> 00:04:43,400
+Then use the option R, -R,  not using I just use -R, but we are using -i also, -iR
+
+57
+00:04:43,400 --> 00:04:45,080
+it will get into the dir also.
+
+58
+00:04:45,140 --> 00:04:51,710
+Since, there is no such thing, you know what, we will put this file into devopsdir with a different name
+
+59
+00:04:51,710 --> 00:04:59,390
+mybootingfile.cfg
+
+60
+00:05:02,110 --> 00:05:05,230
+OK, I copy the file, same file over there.
+
+61
+00:05:05,620 --> 00:05:06,640
+Let's do it once again.
+
+62
+00:05:07,870 --> 00:05:12,790
+Now, you see, it also gets inside the directory and show you and search for the file.
+
+63
+00:05:14,450 --> 00:05:16,040
+With the content that you have mentioned.
+
+64
+00:05:16,970 --> 00:05:17,950
+Now, that's interesting.
+
+65
+00:05:17,960 --> 00:05:23,660
+Now think about it, if you're looking for a configuration that you want to change, but you really
+
+66
+00:05:23,660 --> 00:05:28,250
+don't know in which file it is located, you at least know it's an /etc dir, but you don't know
+
+67
+00:05:28,250 --> 00:05:29,210
+which file it is.
+
+68
+00:05:29,960 --> 00:05:35,690
+Like, for example, you're searching for a setting called selinux, CAPS.
+
+69
+00:05:36,200 --> 00:05:37,430
+OK, try this exercise.
+
+70
+00:05:38,100 --> 00:05:43,610
+SELINUX is security enhanced Linux and sometimes we need to switch it to permissive or disabled
+
+71
+00:05:43,610 --> 00:05:44,990
+mode from enforcing mode.
+
+72
+00:05:45,470 --> 00:05:50,430
+So we know there is this setting called SELINUX ,CAPS, but we really don't know in which file it is located.
+
+73
+00:05:50,460 --> 00:05:54,410
+So I'm going to say grep SELINUX and I'll say /etc
+
+74
+00:05:55,550 --> 00:06:00,260
+And I I don't know whether it's in subdirectories or not, so I'm going to give an option -R
+
+75
+00:06:01,160 --> 00:06:08,870
+/etc/* , so look for all the files, subdirectories, all the files, basically for a text
+
+76
+00:06:08,870 --> 00:06:10,490
+called SELINUX
+
+77
+00:06:12,470 --> 00:06:14,360
+And then you can go through the result.
+
+78
+00:06:15,420 --> 00:06:24,150
+Now you do not need to get into what is selinux for now
+
+79
+00:06:24,150 --> 00:06:28,830
+But I'm just showing look, you're looking for a setting but you don't know in which
+
+80
+00:06:28,870 --> 00:06:31,170
+file it is. You can do a search like this.
+
+81
+00:06:31,550 --> 00:06:31,810
+Right.
+
+82
+00:06:32,070 --> 00:06:33,740
+And when you got your result.
+
+83
+00:06:33,840 --> 00:06:35,700
+No, that's that's the file.
+
+84
+00:06:36,150 --> 00:06:37,950
+So you can use that file.
+
+85
+00:06:39,710 --> 00:06:43,230
+Open that file and you see it says selinux is in permissive mode.
+
+86
+00:06:43,250 --> 00:06:49,700
+I want to change it to maybe disabled mode, so make the change disabled.
+
+87
+00:06:50,910 --> 00:06:52,170
+And save and quit.
+
+88
+00:06:55,350 --> 00:07:00,360
+And for selinux to take effect, you need to reboot machine, but we're going to skip that part for now
+
+89
+00:07:01,270 --> 00:07:03,800
+and you have to understand how powerful this method is.
+
+90
+00:07:03,810 --> 00:07:11,340
+You want to change configuration, configuration are stored in text files, and most of your operations
+
+91
+00:07:11,340 --> 00:07:12,090
+will be like this.
+
+92
+00:07:12,090 --> 00:07:16,920
+You look for a file, you make the change either manually or automatically through your scripts.
+
+93
+00:07:17,670 --> 00:07:21,750
+So this is a very effective trick of system administrators.
+
+94
+00:07:21,870 --> 00:07:23,730
+So they don't need to memorize things.
+
+95
+00:07:24,750 --> 00:07:26,550
+OK, one more option with grep.
+
+96
+00:07:27,490 --> 00:07:35,170
+grep has one opposite searching option -v, it is like you know, do not search for anything that
+
+97
+00:07:35,170 --> 00:07:42,100
+says firewall or I will also put i for case sensitivity.
+
+98
+00:07:42,100 --> 00:07:47,740
+So it's the opposite, do not show me any content, any line that contains firewall, except that it's
+
+99
+00:07:47,740 --> 00:07:48,940
+going to show you everything.
+
+100
+00:07:50,320 --> 00:07:56,020
+OK, and that's a very long file, so you can check that you not see anything that contains firewall
+
+101
+00:07:56,590 --> 00:08:00,130
+except that all the lines are displayed reverse search.
+
+102
+00:08:02,050 --> 00:08:03,310
+-v option
+
+103
+00:08:05,480 --> 00:08:10,080
+OK, let's see other commands now, less, less is a reader.
+
+104
+00:08:10,550 --> 00:08:13,370
+So you say less and you give a file path that you want to read.
+
+105
+00:08:14,650 --> 00:08:20,040
+You know, you can use cat also, but cat just  displays all the content and, you know, just quits.
+
+106
+00:08:20,170 --> 00:08:22,780
+less is a reader.
+
+107
+00:08:22,840 --> 00:08:25,510
+So you can use up arrow down arrow, you can read the content.
+
+108
+00:08:25,810 --> 00:08:29,560
+It looks like vim, but it's not an editor, its reader.
+
+109
+00:08:30,280 --> 00:08:32,110
+And you can also make search also from here.
+
+110
+00:08:32,110 --> 00:08:33,220
+Forward slash.
+
+111
+00:08:33,580 --> 00:08:35,770
+Let's say you're searching for a network.
+
+112
+00:08:37,860 --> 00:08:42,150
+Yeah, like that, if you want to quit just use q to quit
+
+113
+00:08:44,770 --> 00:08:49,600
+Similar to less there is one more. more and the file path.
+
+114
+00:08:50,890 --> 00:08:58,000
+Now, more you cannot use up arrow, down arrow, you have to use your enter return keys and it's going
+
+115
+00:08:58,000 --> 00:08:59,470
+to show you file in the percentage way.
+
+116
+00:09:00,160 --> 00:09:01,930
+I really don't use it much.
+
+117
+00:09:02,350 --> 00:09:04,350
+I use less, more than more.
+
+118
+00:09:04,600 --> 00:09:06,310
+But then again, it's your choice.
+
+119
+00:09:06,940 --> 00:09:11,140
+If you want to quit, you can just go till the end or you can use q to quit.
+
+120
+00:09:14,720 --> 00:09:19,070
+Yeah, so more and less, it's your choice.
+
+121
+00:09:20,590 --> 00:09:25,720
+Sometimes you just want to see the first few lines of a file so you can use head command and you can
+
+122
+00:09:25,720 --> 00:09:29,050
+give the file path, it will show you first 10 lines of the fine.
+
+123
+00:09:29,440 --> 00:09:30,550
+But if you want, you can change.
+
+124
+00:09:30,550 --> 00:09:32,140
+You want to see 1st 20 lines.
+
+125
+00:09:32,140 --> 00:09:33,670
+You can say -20
+
+126
+00:09:34,840 --> 00:09:40,300
+1st 20 lines or you just want to see 1st 2 lines, head -2
+
+127
+00:09:42,600 --> 00:09:47,760
+OK, that's handy, you don't need to read the entire file, the opposite of it is. tail.
+
+128
+00:09:50,780 --> 00:09:56,270
+tail is going to show you, as you would have already guessed, last 10 lines of a file.
+
+129
+00:09:57,470 --> 00:10:02,960
+And again, you can use your numbers, you know, you can see first two lines or how many lines you
+
+130
+00:10:02,960 --> 00:10:03,470
+want to read.
+
+131
+00:10:04,130 --> 00:10:10,460
+Now, tail has also one very useful operational, option, -f, hyphen f, and you give a filepath
+
+132
+00:10:10,460 --> 00:10:10,880
+.
+
+133
+00:10:10,880 --> 00:10:13,690
+It will show you the dynamic content.
+
+134
+00:10:13,700 --> 00:10:14,690
+So it's not quitting.
+
+135
+00:10:14,690 --> 00:10:17,680
+If you see, I hit enter, you see my cursor is just blinking there.
+
+136
+00:10:18,050 --> 00:10:23,180
+So if any changes happen in this file, it's going to show me on my screen, which is good when we read
+
+137
+00:10:23,180 --> 00:10:23,960
+log files.
+
+138
+00:10:25,390 --> 00:10:29,320
+So, do control c, control c, to quit from here.
+
+139
+00:10:34,060 --> 00:10:36,820
+Now, talking about log files, let me show you.
+
+140
+00:10:37,730 --> 00:10:38,490
+One example.
+
+141
+00:10:39,320 --> 00:10:44,060
+So log files of the systems are located in /var/log
+
+142
+00:10:45,040 --> 00:10:50,350
+Here you will see log file of the system or if any service that is running any server, you'll see logs
+
+143
+00:10:50,350 --> 00:10:51,940
+in this directory by default.
+
+144
+00:10:52,450 --> 00:10:55,780
+But some servers have log files in some other directories also.
+
+145
+00:10:57,220 --> 00:10:58,630
+Like, yum, yum.
+
+146
+00:10:59,210 --> 00:11:02,970
+So let's say, tail -f yum.log
+
+147
+00:11:05,090 --> 00:11:05,570
+.
+
+148
+00:11:06,810 --> 00:11:12,700
+OK, so you see the last 10 lines and if something is happening, you can see the logs updating over here
+
+149
+00:11:12,700 --> 00:11:12,960
+.
+
+150
+00:11:15,610 --> 00:11:17,320
+The system log file is message
+
+151
+00:11:18,530 --> 00:11:23,300
+messages, in Red Hat machine, messages is the system's log file.
+
+152
+00:11:24,370 --> 00:11:29,860
+Which will record a lot of information, you can do a cat to this file, you see a lot of information,
+
+153
+00:11:30,370 --> 00:11:35,920
+so its a new system, so you really don't see much information, but it will show login events also.
+
+154
+00:11:36,490 --> 00:11:37,600
+So let's do this.
+
+155
+00:11:37,850 --> 00:11:40,060
+Just open one more gitBash
+
+156
+00:11:43,330 --> 00:11:45,130
+And will make a logging attempt.
+
+157
+00:11:45,310 --> 00:11:52,900
+And before we do that, I will just do tail -f /var/log/messages
+
+158
+00:11:53,350 --> 00:11:54,970
+ok, hit enter.
+
+159
+00:11:55,870 --> 00:11:58,090
+OK, so there it is.
+
+160
+00:11:59,290 --> 00:12:04,510
+Tailing the log and now from another git bash, I will get into that directly.
+
+161
+00:12:06,000 --> 00:12:10,590
+And I will make a logging attempt by ssh, which which will be a successful attempt.
+
+162
+00:12:12,930 --> 00:12:17,580
+And this logging event should be recorded in this file, and you should see dynamically this file getting
+
+163
+00:12:17,580 --> 00:12:18,810
+updated on my screen.
+
+164
+00:12:23,590 --> 00:12:27,820
+See, there, here, I made a log in and you see the event over there, right?
+
+165
+00:12:27,920 --> 00:12:30,930
+So that's how the tail -f option is very helpful.
+
+166
+00:12:31,200 --> 00:12:37,980
+When you're troubleshooting one very important tip about troubleshooting a server, you see errors in
+
+167
+00:12:37,980 --> 00:12:38,640
+log files.
+
+168
+00:12:38,670 --> 00:12:40,290
+That's how you start troubleshooting.
+
+169
+00:12:40,740 --> 00:12:42,360
+So every server will have its own.
+
+170
+00:12:42,360 --> 00:12:44,370
+Every service will have its own log file.
+
+171
+00:12:45,090 --> 00:12:46,260
+And you see some error.
+
+172
+00:12:46,280 --> 00:12:50,130
+You want to see when does this error triggers, when does this happen?
+
+173
+00:12:50,460 --> 00:12:53,640
+So you can probably make some changes or restart the service.
+
+174
+00:12:53,640 --> 00:12:59,280
+And by the time you know you're doing those changes, you can keep tailing in one shell, in one session
+
+175
+00:12:59,640 --> 00:13:04,530
+and you will see if you do this particular thing, you see the error and that's how you can start troubleshooting.
+
+176
+00:13:04,530 --> 00:13:06,750
+Then more further you can funnel down to the problem.
+
+177
+00:13:07,720 --> 00:13:09,820
+OK, let's do a control c
+
+178
+00:13:10,950 --> 00:13:14,930
+So one more system administrators, trick or type.
+
+179
+00:13:19,430 --> 00:13:27,740
+OK, now let me show you a file /etc/passwd, this file contains user information, all the users
+
+180
+00:13:27,740 --> 00:13:34,520
+in our systems and there information. We will get into users and group in the next video.
+
+181
+00:13:34,550 --> 00:13:39,480
+Now, we are just doing some filtering over here, so I want to get all the user names.
+
+182
+00:13:40,250 --> 00:13:43,510
+This file has all the user name, but it has all the other content.
+
+183
+00:13:43,530 --> 00:13:48,230
+Although I don't want all that content, I just want the user names or maybe just the user.
+
+184
+00:13:48,530 --> 00:13:55,610
+Whatever we want, we can get from this file because this file is properly segregated into rows and
+
+185
+00:13:55,610 --> 00:13:56,390
+columns.
+
+186
+00:13:56,720 --> 00:14:01,250
+These are the rows and the columns are separated by colon.
+
+187
+00:14:02,450 --> 00:14:08,510
+OK, so you have username colon and some information colon and some information, and we'll understand
+
+188
+00:14:08,510 --> 00:14:09,680
+what the other information.
+
+189
+00:14:10,250 --> 00:14:12,800
+But first one first column is username.
+
+190
+00:14:13,810 --> 00:14:18,620
+So this file is properly segregated by using Colon's.
+
+191
+00:14:19,400 --> 00:14:28,220
+And if you have that proper separators or proper delimiters like colon or comma or anything, then you
+
+192
+00:14:28,220 --> 00:14:29,960
+You can use cut command.
+
+193
+00:14:31,030 --> 00:14:36,100
+cut, you see -d delimiter or the separator :
+
+194
+00:14:37,310 --> 00:14:43,250
+And you say -f1, field, one, column one, and you give the file path.
+
+195
+00:14:45,230 --> 00:14:48,650
+So it will show you just the field  one, the first column of the entire file.
+
+196
+00:14:51,380 --> 00:14:56,000
+That's nice and all, but for cut command, the delimiters are very important.
+
+197
+00:14:56,850 --> 00:15:05,150
+You can use, lets say filed three, which shows you the userid field 4, group id, like
+
+198
+00:15:05,150 --> 00:15:05,330
+that.
+
+199
+00:15:05,330 --> 00:15:10,910
+You can see whatever field you want, but this is good only if you have a proper separator like here,
+
+200
+00:15:10,910 --> 00:15:11,360
+colon
+
+201
+00:15:12,020 --> 00:15:15,990
+But if you don't have proper separators, then there's an intelligent filter tool.
+
+202
+00:15:16,370 --> 00:15:18,380
+called a awk
+
+203
+00:15:19,130 --> 00:15:20,690
+awk lots of options.
+
+204
+00:15:21,380 --> 00:15:27,650
+You can use all your regular expressions, all your filtering techniques and you can use awk command
+
+205
+00:15:28,040 --> 00:15:31,030
+to apply all those filtering techniques using regular expressions.
+
+206
+00:15:31,040 --> 00:15:33,770
+I'll show you one simple example as we've seen with Cut now.
+
+207
+00:15:35,130 --> 00:15:38,730
+cut -F':'
+
+208
+00:15:38,760 --> 00:15:47,220
+You give the delimiter and in single quote you create curly braces and say print $1
+
+209
+00:15:47,760 --> 00:15:53,040
+Now this may look more complicated than cut, but sometimes for some advanced search or intelligent
+
+210
+00:15:53,040 --> 00:15:56,550
+search, awk is always better.
+
+211
+00:15:57,600 --> 00:15:59,760
+We're going to see more example, on awk later.
+
+212
+00:16:00,300 --> 00:16:03,960
+One simple example as cut, getting the first column.
+
+213
+00:16:06,150 --> 00:16:07,900
+OK, we'll see, search and replace.
+
+214
+00:16:07,970 --> 00:16:16,170
+Now I have a sample file over here that has three sentences and it has the word coronavirus, coronavirus,
+
+215
+00:16:16,170 --> 00:16:18,060
+coronavirus, coronavirus.
+
+216
+00:16:18,450 --> 00:16:21,840
+I know it's everywhere, at least now when I'm recording it.
+
+217
+00:16:22,290 --> 00:16:30,000
+But there's also a vaccine now from Moderna and from Pfizer, even though it is still spreading and still
+
+218
+00:16:30,000 --> 00:16:32,570
+it's a pandemic and a huge, huge pandemic.
+
+219
+00:16:33,270 --> 00:16:38,330
+Anyway, let's search for the text coronavirus and replace it with covid-19.
+
+220
+00:16:39,120 --> 00:16:40,710
+So we have two ways.
+
+221
+00:16:40,710 --> 00:16:45,090
+One is through vim, just for single file.
+
+222
+00:16:45,690 --> 00:16:47,370
+So open the file.
+
+223
+00:16:47,640 --> 00:16:49,200
+:%s/
+
+224
+00:16:49,200 --> 00:16:59,420
+:%s/, which means search for corona virus and then forward slash and replace it with, let's
+
+225
+00:16:59,480 --> 00:17:01,020
+say, covid-19.
+
+226
+00:17:02,100 --> 00:17:03,820
+Right, I hit enter.
+
+227
+00:17:05,319 --> 00:17:14,079
+And you see, it has changed at three places there, there and there, but not here, if the same text you're
+
+228
+00:17:14,079 --> 00:17:20,369
+searching is multiple times in the line, then it will not make the automatic replacement it will find
+
+229
+00:17:20,470 --> 00:17:26,109
+is a text to replace it and go to the next line if you want to replace it.
+
+230
+00:17:27,079 --> 00:17:30,540
+Everywhere, I'm using u to undo first, yeah.
+
+231
+00:17:30,770 --> 00:17:38,600
+OK, so if you want to replace it everywhere, then do the same thing, search for coronavirus or replace
+
+232
+00:17:38,600 --> 00:17:42,560
+it with covid-19 forward slash /g, g means global.
+
+233
+00:17:42,560 --> 00:17:46,430
+So every place you have coronaviruses, replace it with covid-19.
+
+234
+00:17:49,300 --> 00:17:49,960
+And that's it.
+
+235
+00:17:51,880 --> 00:17:58,000
+I'll show you one more trick, Coolen %s, search for now, we'll search for we have covid-19
+
+236
+00:17:58,450 --> 00:18:02,770
+search for covid-19 and I want to replace it with nothing like, you know, I want to replace covid
+
+237
+00:18:03,250 --> 00:18:07,450
+Corona with nothing so forward slash g.
+
+238
+00:18:08,420 --> 00:18:12,440
+OK, 2 //, that means search for covid-19, replace it with nothing.
+
+239
+00:18:14,050 --> 00:18:14,410
+Now.
+
+240
+00:18:15,420 --> 00:18:18,840
+There is a spelling mistake, oh, there's a spelling mistake, typographical error.
+
+241
+00:18:20,190 --> 00:18:31,380
+covid-19 replace it with nothing. Hit enter and you see that, see that we really
+
+242
+00:18:31,380 --> 00:18:34,560
+dont need a vaccine, we just need a sed command to replace it with nothing.
+
+243
+00:18:35,070 --> 00:18:36,630
+I know that's bad joke but anyways.
+
+244
+00:18:37,830 --> 00:18:41,280
+So I'm not saving the content if you save, it is saved.
+
+245
+00:18:41,370 --> 00:18:42,960
+I'm just going to quit forcefully.
+
+246
+00:18:44,430 --> 00:18:47,130
+Now let's do the same thing with sed.
+
+247
+00:18:47,130 --> 00:18:52,680
+Now if you want to do it out of the vim, if you want to do for multiple files, you can.
+
+248
+00:18:52,680 --> 00:19:04,470
+use sed command. sed in single quote  slash searching for coronavirus and replacing it with covid19.
+
+249
+00:19:05,990 --> 00:19:10,160
+Again, g for global, if you don't use g, then you know what happens.
+
+250
+00:19:11,460 --> 00:19:16,500
+And give the file path. Now here, you can use regular expressions also, you know, probably you have
+
+251
+00:19:16,500 --> 00:19:20,280
+multiple files that has. You can say, *.txt for all the text search.
+
+252
+00:19:20,280 --> 00:19:26,370
+Or you can just say * for all search, for all the files in the current dir. for coronavirus and replace
+
+253
+00:19:26,370 --> 00:19:27,570
+it with covid19.
+
+254
+00:19:28,050 --> 00:19:28,980
+That's very handy.
+
+255
+00:19:29,730 --> 00:19:35,460
+Trust me, we need to do a lot of changes and sometimes we need to change settings in multiple files
+
+256
+00:19:35,910 --> 00:19:38,500
+and which will have multiple, multiple, multiple lines.
+
+257
+00:19:39,060 --> 00:19:40,830
+So this will do it just like that.
+
+258
+00:19:41,490 --> 00:19:46,110
+You know, you don't need to, like, open all the files and do a search and replace, you know, it's
+
+259
+00:19:46,110 --> 00:19:47,350
+very easy with sed command
+
+260
+00:19:47,850 --> 00:19:50,670
+So that's one more tip or trick for you.
+
+261
+00:19:54,420 --> 00:19:59,190
+OK, but when you do it with sed command it will just print it on the screen, it will not actually
+
+262
+00:19:59,190 --> 00:20:00,090
+make the changes.
+
+263
+00:20:00,090 --> 00:20:05,360
+If you see the file, it will still have coronavirus.
+
+264
+00:20:06,270 --> 00:20:06,630
+Yeah.
+
+265
+00:20:07,720 --> 00:20:12,870
+That was just printing, if you want to change it, then you have to use an option -i
+
+266
+00:20:14,290 --> 00:20:15,850
+So it's like a little safer, right?
+
+267
+00:20:15,870 --> 00:20:20,860
+First you see what you are changing and then if you're good and use -i to actually change the
+
+268
+00:20:20,860 --> 00:20:21,400
+content.
+
+269
+00:20:24,290 --> 00:20:26,340
+Yeah, now it's changed, OK?
+
+270
+00:20:26,660 --> 00:20:30,320
+How do you want to make some other change, like now you have covid19 in this?
+
+271
+00:20:30,320 --> 00:20:30,770
+Fine.
+
+272
+00:20:32,520 --> 00:20:37,290
+And I want to replace it with nothing as nothing next.
+
+273
+00:20:39,360 --> 00:20:40,830
+Yeah, let's see the file.
+
+274
+00:20:42,620 --> 00:20:49,190
+You see that moderna has creat, I should say, created a vaccine for nothing, for nothing.
+
+275
+00:20:49,200 --> 00:20:55,290
+Pfizer has also created a vaccine, nothing spread through water droplets in the air and nothing is
+
+276
+00:20:55,290 --> 00:20:55,890
+a pandemic.
+
+277
+00:20:55,890 --> 00:20:56,850
+That's a big lie.
+
+278
+00:20:57,490 --> 00:20:58,620
+OK, that's just for fun.
+
+279
+00:20:59,400 --> 00:21:04,290
+Coronavirus is really very, very deadly and we should be really safe.
+
+280
+00:21:05,130 --> 00:21:10,560
+We're using our masks, sanitizing our hands and maintaining social distancing.
+
+281
+00:21:10,980 --> 00:21:14,310
+And that's the only way now unless we get a vaccine.
+

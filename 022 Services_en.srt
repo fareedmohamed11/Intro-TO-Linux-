@@ -1,0 +1,256 @@
+1
+00:00:01,370 --> 00:00:02,850
+Welcome to this video.
+
+2
+00:00:02,870 --> 00:00:09,080
+In this video, we will be talking about services that are running in your Linux system or if you happen
+
+3
+00:00:09,080 --> 00:00:12,400
+to run your own service, how you can manage that.
+
+4
+00:00:13,220 --> 00:00:17,500
+So we have installed a package httpd, lets do it once again.
+
+5
+00:00:22,190 --> 00:00:29,120
+And it's already installed, httpd, is a Web service and the package name is httpd again,
+
+6
+00:00:29,870 --> 00:00:34,850
+so you say yum install httpd, it will install the package and you should have also a service named
+
+7
+00:00:34,860 --> 00:00:42,250
+httpd now, which can be managed by systemctl command. systemctl status httpd.
+
+8
+00:00:42,920 --> 00:00:44,180
+It will show you the status.
+
+9
+00:00:44,180 --> 00:00:45,800
+It says it's inactive.
+
+10
+00:00:45,800 --> 00:00:51,630
+Now, if you want to start the service, you can say systemctl start httpd.
+
+11
+00:00:54,380 --> 00:00:56,150
+And let's check its status again.
+
+12
+00:00:57,010 --> 00:01:03,130
+It should show active, so you see here some processes running, these are the process id.
+
+13
+00:01:03,430 --> 00:01:06,830
+Will get into what our processes and process IDs in the next video.
+
+14
+00:01:07,610 --> 00:01:11,390
+But really what it means to run a service means there are some processes running.
+
+15
+00:01:12,020 --> 00:01:17,090
+You want to start the process or you want to stop the process or you want to restart the processes.
+
+16
+00:01:17,100 --> 00:01:20,780
+You can use a systemctl command for a service.
+
+17
+00:01:25,410 --> 00:01:29,940
+So, like, start and stop, you also have an option of a restart.
+
+18
+00:01:31,400 --> 00:01:37,610
+If you make some changes, configuration change to your service, you can restart the service, so it
+
+19
+00:01:37,610 --> 00:01:38,360
+takes effect.
+
+20
+00:01:39,720 --> 00:01:45,480
+There's also one more option, instead of restart, you can try to reload or to reload the configuration
+
+21
+00:01:45,480 --> 00:01:47,370
+without even restarting the service.
+
+22
+00:01:49,160 --> 00:01:56,150
+So we started the service and it's running, but it's just running for now, if I reboot this machine
+
+23
+00:01:56,150 --> 00:01:59,110
+while booting up, this service will not come up.
+
+24
+00:01:59,450 --> 00:02:02,150
+I'll show that to you. Lets do exit.
+
+25
+00:02:03,380 --> 00:02:07,070
+And the exit, or I can just say reboot.
+
+26
+00:02:09,070 --> 00:02:14,480
+So if you want, you can do vagrant reload. exit out the vagrant reload or from the system, you can say
+
+27
+00:02:14,500 --> 00:02:17,560
+reboot and it should reboot your vm.
+
+28
+00:02:18,550 --> 00:02:24,820
+So before we reboot, you see the status was active, but after it comes up, let's see whether it's
+
+29
+00:02:24,820 --> 00:02:25,640
+running or not.
+
+30
+00:02:26,410 --> 00:02:27,210
+OK, it's up.
+
+31
+00:02:27,220 --> 00:02:28,160
+I have logged in.
+
+32
+00:02:28,270 --> 00:02:29,650
+Let me become the root user.
+
+33
+00:02:30,040 --> 00:02:39,400
+And now let's check the status, httpd and you see it's inactive, so it did not come at the boot time.
+
+34
+00:02:39,400 --> 00:02:47,200
+If you want to bring up a service at the boot time, then you have to say systemctl enable and the service
+
+35
+00:02:47,200 --> 00:02:49,030
+name like httpd
+
+36
+00:02:49,450 --> 00:02:51,670
+Now the service will come up at the boot time.
+
+37
+00:02:52,530 --> 00:02:58,260
+So it is only for the time if you really want to start the service, then you have to say.
+
+38
+00:02:59,440 --> 00:03:01,720
+systemctl start and the service name.
+
+39
+00:03:03,200 --> 00:03:09,320
+So far, have you been doing ssh to this machine through vagrant ssh and there is actually a service
+
+40
+00:03:09,320 --> 00:03:14,010
+called ssh, you can check its status if this always happens to be stopped.
+
+41
+00:03:14,030 --> 00:03:19,820
+We will not be able to do ssh. We will get into ssh in much more in detail in shell scripting.
+
+42
+00:03:22,820 --> 00:03:27,110
+OK, few other commands you want to check whether a service is running or not.
+
+43
+00:03:27,140 --> 00:03:28,370
+You can just run this command.
+
+44
+00:03:28,370 --> 00:03:34,040
+Also, systemctl is-active and the service name, it is inactive.
+
+45
+00:03:36,520 --> 00:03:43,330
+Because you see its status is stopped, you can say start, so we did enable, but we did not start the service.
+
+46
+00:03:44,230 --> 00:03:45,160
+Now, it started.
+
+47
+00:03:46,750 --> 00:03:51,220
+OK, so you can run systemctl status, but if you just want to check if t's active or not, you
+
+48
+00:03:51,220 --> 00:03:52,240
+can say is-active.
+
+49
+00:03:54,160 --> 00:03:56,980
+Like is-active, you also have is-enabled.
+
+50
+00:04:00,720 --> 00:04:04,400
+So it will tell you whether the services enabled for the boot time or not.
+
+51
+00:04:07,500 --> 00:04:12,940
+OK, so the way systemctl really works is based on its configuration file.
+
+52
+00:04:12,960 --> 00:04:20,010
+So for httpd, there should be a configuration file and this got created when you when we installed
+
+53
+00:04:20,010 --> 00:04:20,630
+htpd
+
+54
+00:04:21,600 --> 00:04:30,900
+OK, so the filepath is this system, the system slash multi-user.target.wants/httpd.service
+
+55
+00:04:31,970 --> 00:04:38,120
+So when we say systemctl  start httpd, it's going to read this file and we'll see execs start
+
+56
+00:04:38,120 --> 00:04:38,810
+how to start.
+
+57
+00:04:38,840 --> 00:04:43,700
+So this is actually the binary, which it is running with some options.
+
+58
+00:04:45,110 --> 00:04:51,260
+And some argument, so it really is going to run this command to start the service, to stop it's going
+
+59
+00:04:51,260 --> 00:04:55,570
+to run that command will understand what's a kill command later in processes.
+
+60
+00:04:56,300 --> 00:05:01,250
+So this configuration file got created automatically when we installed httpd through yum
+
+61
+00:05:02,660 --> 00:05:07,700
+But we'll see other way, when we just have a tar ball download and extracted, we don't have a
+
+62
+00:05:07,700 --> 00:05:13,310
+systemctl file to start the services, but we can create our own also that we're going to do later.
+
+63
+00:05:14,460 --> 00:05:16,560
+But that is all for now.
+
+64
+00:05:16,740 --> 00:05:18,360
+I will see you in the next video.
+

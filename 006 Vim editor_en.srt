@@ -1,0 +1,692 @@
+1
+00:00:01,290 --> 00:00:04,260
+In this session, we will be seeing vim editor.
+
+2
+00:00:05,220 --> 00:00:07,200
+vim is a text editor.
+
+3
+00:00:09,220 --> 00:00:14,290
+We'll be editing, creating your text files throughout this course, and you should be very good with
+
+4
+00:00:14,290 --> 00:00:20,290
+this editor, if you're already good with any other text editor like Nano, you can continue with that.
+
+5
+00:00:20,290 --> 00:00:25,840
+But if you don't know any text editor in Linux, then we we're going to start with the vim editor by
+
+6
+00:00:25,840 --> 00:00:29,350
+default, vim editor will not be installed on CentOS Linux machine.
+
+7
+00:00:30,070 --> 00:00:37,900
+You will have vi Editor. vim is just an enhanced vim editor, so first, we will install the vim editor.
+
+8
+00:00:37,900 --> 00:00:40,150
+So let's go to our VM.
+
+9
+00:00:41,110 --> 00:00:48,280
+OK, so I am a vagrant user and this is a centos machine.
+
+10
+00:00:48,280 --> 00:00:55,240
+So to install you have to give the command sudo yum install vim -y.
+
+11
+00:00:55,240 --> 00:00:58,750
+We will be understanding this commands in detail later.
+
+12
+00:00:58,810 --> 00:01:02,440
+As of now, just run this command to install vim editor.
+
+13
+00:01:07,290 --> 00:01:13,110
+If for some reason your installation is not working, it's throwing you error, you don't need to troubleshoot
+
+14
+00:01:13,110 --> 00:01:19,260
+anything over here, recreate the VM, it's probably your VM is not getting Internet or you can bring
+
+15
+00:01:19,260 --> 00:01:22,500
+up Ubuntu VM that has vim by default installed.
+
+16
+00:01:23,160 --> 00:01:25,970
+And that's only if your installation is not working.
+
+17
+00:01:25,980 --> 00:01:27,470
+Don't waste your time and troubleshooting.
+
+18
+00:01:27,480 --> 00:01:31,180
+We are going to cover networking with vagrant later
+
+19
+00:01:31,180 --> 00:01:33,840
+So if you have any problem then you can troubleshoot.
+
+20
+00:01:33,840 --> 00:01:37,110
+As of now, just install. Not Working? Use Ubuntu VM.
+
+21
+00:01:39,360 --> 00:01:45,550
+OK, once you have installed your vim editor, let's create some file with it, so that's how you do.
+
+22
+00:01:45,630 --> 00:01:48,000
+There's nothing on here.
+
+23
+00:01:48,000 --> 00:01:49,050
+I'm in the home territory.
+
+24
+00:01:49,050 --> 00:01:55,700
+I'm going to run the command vim and a file name, So I will name it just simply firstfile.txt
+
+25
+00:01:56,780 --> 00:01:59,160
+Again, here extension is just for our reference.
+
+26
+00:01:59,180 --> 00:02:03,740
+It doesn't matter even and if you don't give extension, we can open this file and we're going to edit
+
+27
+00:02:03,740 --> 00:02:03,950
+this.
+
+28
+00:02:03,990 --> 00:02:05,060
+It's going to be a text file.
+
+29
+00:02:06,270 --> 00:02:09,030
+So give any name and hit enter.
+
+30
+00:02:10,490 --> 00:02:17,740
+You should see new file over here. When you open the vim editor first.
+
+31
+00:02:17,780 --> 00:02:19,370
+It will be in command mode.
+
+32
+00:02:19,550 --> 00:02:21,290
+There are three modes in vim editor.
+
+33
+00:02:21,290 --> 00:02:24,080
+You have command mode.
+
+34
+00:02:25,160 --> 00:02:30,470
+Then you have insert mode, in this mode, you're going to make changes and edit you want to do in the file
+
+35
+00:02:30,470 --> 00:02:35,090
+file, you have to get into insert mode by hitting I as in India.
+
+36
+00:02:36,040 --> 00:02:40,660
+Third mode is extended mode if you want to do some other operation like you want to save the file or
+
+37
+00:02:40,660 --> 00:02:43,840
+quit from the file, you can get into extended mode.
+
+38
+00:02:44,350 --> 00:02:48,310
+That will be by using colon : And we'll see how that works.
+
+39
+00:02:49,710 --> 00:02:55,440
+So currently, I'm in command mode, I'm going to hit I, as in India, and I get into insert mode and
+
+40
+00:02:55,440 --> 00:02:58,620
+I can then start writing here, so I'll just see you.
+
+41
+00:02:58,650 --> 00:03:01,060
+Welcome to Linux.
+
+42
+00:03:02,160 --> 00:03:04,680
+I know you're already welcomed, but again, I'm welcoming.
+
+43
+00:03:06,430 --> 00:03:09,490
+I hope you enjoy.
+
+44
+00:03:13,220 --> 00:03:14,090
+command line.
+
+45
+00:03:17,140 --> 00:03:19,560
+or just commands or whatever you want to write.
+
+46
+00:03:20,500 --> 00:03:25,600
+OK, I have written two lines in this file, and now I want to save it, so you have to hit escape to
+
+47
+00:03:25,600 --> 00:03:26,800
+go back to command mode.
+
+48
+00:03:28,310 --> 00:03:34,550
+And then hit colon : when you hit colon : you are in extended mode and in extended mode, you can
+
+49
+00:03:34,550 --> 00:03:35,360
+save the file.
+
+50
+00:03:35,360 --> 00:03:38,360
+You have to say  :w, which is write.
+
+51
+00:03:38,570 --> 00:03:39,380
+Save the file.
+
+52
+00:03:40,610 --> 00:03:43,790
+And we have written two lines, 45 characters.
+
+53
+00:03:44,040 --> 00:03:46,880
+Now, I didn't count that vim is counting, it told me.
+
+54
+00:03:47,990 --> 00:03:55,220
+OK, now you want to go out quite from this file again, you have to be in the command mode, so esc :q
+
+55
+00:03:55,760 --> 00:03:57,170
+esc + :q
+
+56
+00:03:58,370 --> 00:04:03,110
+Enter and it will quit, you can use your cat command to read the file.
+
+57
+00:04:04,890 --> 00:04:11,690
+OK, now we want to open this file once again, so vim and file name again or file path.
+
+58
+00:04:12,390 --> 00:04:13,790
+Now, this is not a new file
+
+59
+00:04:13,800 --> 00:04:14,700
+It's an existing file.
+
+60
+00:04:14,730 --> 00:04:16,200
+Now you want to make change again.
+
+61
+00:04:16,200 --> 00:04:25,260
+You can use I to insert or you can use o as in Oscar to get into insert mode. o is going to just
+
+62
+00:04:25,260 --> 00:04:26,550
+drop one level down.
+
+63
+00:04:30,420 --> 00:04:41,460
+And I'll add one more line, it is super important for you to practice Linux.
+
+64
+00:04:43,150 --> 00:04:52,630
+Before into devops, now that's the truth.
+
+65
+00:04:53,830 --> 00:04:56,470
+Even if you are a windows, there was.
+
+66
+00:04:58,020 --> 00:05:02,820
+I mean, if you're using Windows operating system for server and for automation, for everything, still,
+
+67
+00:05:02,820 --> 00:05:09,000
+you will need to have Linux skills because being DevOps you will still be using so many Linux based tools.
+
+68
+00:05:09,840 --> 00:05:17,880
+OK, now let's save this file and we're going to do all at once esc :wq, save and quit at the same time
+
+69
+00:05:17,880 --> 00:05:18,840
+esc :wq, save and quit at the same time
+
+70
+00:05:19,320 --> 00:05:23,100
+Hit Enter and you should see the file.
+
+71
+00:05:23,130 --> 00:05:25,680
+Now let's open it once again.
+
+72
+00:05:29,050 --> 00:05:31,210
+Simply want to quit, :q
+
+73
+00:05:32,080 --> 00:05:34,180
+quit out
+
+74
+00:05:35,480 --> 00:05:36,920
+Let's open it once again.
+
+75
+00:05:37,880 --> 00:05:45,830
+And this time, let's make some changes and, oh, that's a mistake and we don't want to save it, so
+
+76
+00:05:46,040 --> 00:05:47,240
+esc :q
+
+77
+00:05:47,240 --> 00:05:52,660
+:q , You're trying to do and it will not let you quit because you made some changes.
+
+78
+00:05:52,670 --> 00:05:55,490
+So again, esc + colon :
+
+79
+00:05:55,490 --> 00:06:01,200
+q!  that is forcefully quit without saving anything.
+
+80
+00:06:01,220 --> 00:06:06,650
+So whatever changes you made will not be saved and you go out.
+
+81
+00:06:07,630 --> 00:06:08,650
+All right, check that.
+
+82
+00:06:10,250 --> 00:06:16,730
+OK, that's very basic operations of vim editor, editing a file, making changes, what do
+
+83
+00:06:16,730 --> 00:06:17,360
+you want?
+
+84
+00:06:17,360 --> 00:06:19,610
+Saving, quitting, quitting forcefully.
+
+85
+00:06:22,680 --> 00:06:27,360
+So you have seen three modes when you open the file in command mode, insert mode to make changes
+
+86
+00:06:27,870 --> 00:06:33,690
+and you want to go to extended mode, you have to come to first command mode, escape and colon, and
+
+87
+00:06:33,690 --> 00:06:34,920
+then you get into extended mode.
+
+88
+00:06:35,490 --> 00:06:37,550
+Now, there are a lot of shortcuts in vim editor
+
+89
+00:06:37,600 --> 00:06:39,270
+You're going to see some of them very useful one
+
+90
+00:06:39,270 --> 00:06:44,070
+Like copy paste, cut, paste, redo, undo, stuff like that.
+
+91
+00:06:45,760 --> 00:06:51,730
+For this, we need a little bigger file, so I'm going to become the root user because in root users
+
+92
+00:06:51,910 --> 00:06:56,550
+home directory, there are two files.
+
+93
+00:06:56,590 --> 00:06:58,210
+These are long files.
+
+94
+00:07:00,010 --> 00:07:02,560
+OK, there's so much information in this file.
+
+95
+00:07:04,240 --> 00:07:07,300
+So this file is Anakonda-ks-cfg.
+
+96
+00:07:07,330 --> 00:07:13,150
+This file will have the information of the OS installation, what you selected while you're installing
+
+97
+00:07:13,150 --> 00:07:13,870
+operating system.
+
+98
+00:07:14,380 --> 00:07:16,710
+But we really did not install this operating system.
+
+99
+00:07:16,720 --> 00:07:20,590
+We did it through vagrant, but it will still have the information how it was installed.
+
+100
+00:07:21,580 --> 00:07:22,870
+OK, that's not the point.
+
+101
+00:07:22,870 --> 00:07:26,140
+Anyways, we just want to see some vim commands.
+
+102
+00:07:26,650 --> 00:07:31,180
+So let's open this file and I anaconda-ks.cfg.
+
+103
+00:07:32,230 --> 00:07:41,680
+OK, first thing I'll show you, setting up line numbers here, so colon :se nu, set numbers.
+
+104
+00:07:41,980 --> 00:07:44,750
+OK, there's an extended mode, it will show you the line numbers.
+
+105
+00:07:46,090 --> 00:07:48,370
+OK, now my cursor is on the line.
+
+106
+00:07:48,380 --> 00:07:51,400
+Number one, I want to go to the last line.
+
+107
+00:07:51,400 --> 00:07:53,760
+I can use a shortcut shift G.
+
+108
+00:07:54,580 --> 00:07:55,630
+Or capital G.
+
+109
+00:07:56,680 --> 00:08:03,820
+If you want to go to the first line two times small g, gg
+
+110
+00:08:03,820 --> 00:08:08,850
+One, shift g, last line, gg, first line.
+
+111
+00:08:09,640 --> 00:08:14,140
+Now sometimes you have hundreds and thousands of lines in a file using Down Arrow Up Arrow.
+
+112
+00:08:14,390 --> 00:08:16,210
+It's going to take some time, so shortcut.
+
+113
+00:08:16,900 --> 00:08:20,920
+OK, let's do some copy paste. Now before we see vim copy paste.
+
+114
+00:08:20,920 --> 00:08:24,250
+You know you can really select things in git bash right.
+
+115
+00:08:24,250 --> 00:08:29,710
+Click copy and you can take your cursor where you want and you can get into insert mode and pasted.
+
+116
+00:08:30,080 --> 00:08:30,400
+All right.
+
+117
+00:08:30,460 --> 00:08:31,510
+You can do that also.
+
+118
+00:08:32,320 --> 00:08:33,549
+But vim editor
+
+119
+00:08:33,549 --> 00:08:34,480
+How are we going to do?
+
+120
+00:08:34,539 --> 00:08:35,909
+Oh, let's see.
+
+121
+00:08:36,460 --> 00:08:38,580
+OK, I want to copy this line number 12.
+
+122
+00:08:38,590 --> 00:08:48,010
+So I take my cursor to line number 12 and I use a y two times, yy. This is yanking or copying, yy.
+
+123
+00:08:49,330 --> 00:08:53,350
+And then don't want to paste it somewhere, I'll go to the last line, shift g.
+
+124
+00:08:54,350 --> 00:08:57,230
+And I will hit p, p to paste.
+
+125
+00:08:58,950 --> 00:09:04,230
+OK, small p to paste below, if you want to paste above then capital P.
+
+126
+00:09:05,670 --> 00:09:06,690
+OK, that was neat.
+
+127
+00:09:07,230 --> 00:09:09,450
+Let's go again to line number one.
+
+128
+00:09:10,970 --> 00:09:17,220
+OK, if you want to copy multiple lines, so let's say I want to copy line number 16, 17, 18, 19.
+
+129
+00:09:17,630 --> 00:09:20,040
+OK, one, two, three, four, four lines.
+
+130
+00:09:20,480 --> 00:09:22,350
+So I take my cursor to number 16.
+
+131
+00:09:22,370 --> 00:09:24,560
+I hit 4yy.
+
+132
+00:09:25,800 --> 00:09:30,430
+OK, so 4 lines copied below my cursor, then let's paste somewhere.
+
+133
+00:09:30,450 --> 00:09:35,480
+Let's go to the end again and let's use p, small P to paste below.
+
+134
+00:09:36,720 --> 00:09:38,280
+You see four lines, pasted.
+
+135
+00:09:39,400 --> 00:09:41,840
+OK, feel free to copy and paste anywhere you want.
+
+136
+00:09:42,710 --> 00:09:44,540
+This really is not a configuration file.
+
+137
+00:09:44,540 --> 00:09:46,450
+You can do whatever you want in this file.
+
+138
+00:09:46,460 --> 00:09:49,730
+You can copy this file somewhere and you can do whatever operation you want.
+
+139
+00:09:51,340 --> 00:09:53,000
+OK, so that was copy paste.
+
+140
+00:09:53,040 --> 00:09:54,790
+Let's do now, cut paste.
+
+141
+00:09:56,450 --> 00:10:03,740
+And first line, so, cut, you can delete also. dd, d two times is to delete.
+
+142
+00:10:03,990 --> 00:10:07,080
+So if I hit dd. Deleted line number 1.
+
+143
+00:10:07,080 --> 00:10:07,380
+.
+
+144
+00:10:08,330 --> 00:10:13,730
+OK, and you can use u to undo, u as in umbrella.
+
+145
+00:10:15,170 --> 00:10:20,480
+If you want to delete multiple lines, again, like I want to delete this first five lines, I'll take
+
+146
+00:10:20,480 --> 00:10:28,550
+the cursor top, I say 5dd, deleted 5 lines and if you save, the lines are deleted, u to undo.
+
+147
+00:10:29,890 --> 00:10:34,420
+OK, similarly, you can do cut paste also, with dd you can cut.
+
+148
+00:10:35,340 --> 00:10:43,530
+So delete is actually going to cut, not just delete, so let's say I want to delete 23, 24, 25, 26
+
+149
+00:10:43,530 --> 00:10:46,720
+again, some four lines, 4dd
+
+150
+00:10:47,040 --> 00:10:52,560
+So I cut those four lines and go to the end and I will hit p to paste.
+
+151
+00:10:55,450 --> 00:11:01,210
+That's cut paste. yy and p is copy paste. dd and p is cut paste.
+
+152
+00:11:02,170 --> 00:11:07,060
+OK, so there are total 117 lines in this file, I'll show you one nice trick.
+
+153
+00:11:07,820 --> 00:11:09,520
+Let's go to the top.
+
+154
+00:11:10,950 --> 00:11:17,480
+So I want to delete all the lines in this file, so 117 dd, deleted everything.
+
+155
+00:11:17,490 --> 00:11:20,480
+If I save, everything is gone, but I can bring it back.
+
+156
+00:11:20,490 --> 00:11:22,740
+I can do u to undo.
+
+157
+00:11:24,150 --> 00:11:29,730
+OK, whatever changes I made, I'm not going to save it.  I'm going to say :q!
+
+158
+00:11:31,710 --> 00:11:37,260
+OK, so there are some shortcuts, gg, Capital, G, and if you want to move your cursor, you have wb.
+
+159
+00:11:38,550 --> 00:11:48,030
+nw, n represents the number like 5w, move the cursor, five words forward, like that. You have
+
+160
+00:11:48,030 --> 00:11:51,000
+u to undo, yy to copy.
+
+161
+00:11:51,930 --> 00:11:58,890
+nyy to copy multiple lines, p to paste below, capital P, to paste above and you have dd or ndd
+
+162
+00:11:58,890 --> 00:12:03,100
+One more thing, searching, searching some content in the file.
+
+163
+00:12:03,130 --> 00:12:04,710
+So let's open this file once again.
+
+164
+00:12:05,520 --> 00:12:10,020
+And if I want to search for something, let's say I want to search something as network.
+
+165
+00:12:10,020 --> 00:12:12,600
+So I use forward slash.
+
+166
+00:12:13,320 --> 00:12:20,430
+You have to be in the command mode, forward slash and use search for network, Hit Enter and it will show
+
+167
+00:12:20,430 --> 00:12:23,310
+you all the lines that have the word network.
+
+168
+00:12:23,670 --> 00:12:26,400
+And you can use, n, to go to the next search.
+
+169
+00:12:28,700 --> 00:12:36,890
+If you hit the search at the end, it will print their. Search hit bottom, continue at Top, n
+
+170
+00:12:36,890 --> 00:12:38,360
+2 lines I have network and it's case sensitive.
+
+171
+00:12:38,760 --> 00:12:43,190
+OK, so if you have capital N, it's not going to show you, that's Capital N
+
+172
+00:12:43,460 --> 00:12:48,560
+Linux is case sensitive and most of the things will be case sensitive from here onwards.
+
+173
+00:12:51,800 --> 00:12:55,570
+So that's all in this video about vim editor. I'll see you in the next one.
+

@@ -1,0 +1,620 @@
+1
+00:00:01,220 --> 00:00:07,790
+In this video, we will be seeing different types of files in Linux, we already seen two types of file.
+
+2
+00:00:07,820 --> 00:00:09,420
+One is the text file.
+
+3
+00:00:09,800 --> 00:00:12,830
+The other one is directory, yes.
+
+4
+00:00:12,830 --> 00:00:16,610
+Directories also file like keyboard is also file, mouse is
+
+5
+00:00:16,610 --> 00:00:22,250
+also a file. The ssh that you're doing, the tty session that you get, that is also file.
+
+6
+00:00:22,250 --> 00:00:25,360
+Everything is file in Linux, but there are different types of file.
+
+7
+00:00:25,580 --> 00:00:27,950
+So let's see now different types of file in Linux.
+
+8
+00:00:29,090 --> 00:00:33,140
+So I will get to my VM, /f/vagrant_vms/centos
+
+9
+00:00:35,600 --> 00:00:43,370
+It's an F drive, vagrant-vms/centos7, it's already up, so I'm just going to say, vagrant ssh.
+
+10
+00:00:45,020 --> 00:00:47,480
+OK, for this one, let's switch to root user.
+
+11
+00:00:53,600 --> 00:00:59,720
+Now, ls with an option, -l, hyphen l is called a long listing, it's going to show more
+
+12
+00:00:59,720 --> 00:01:01,000
+information about the file.
+
+13
+00:01:01,370 --> 00:01:03,140
+Let's create a directory also over here.
+
+14
+00:01:07,780 --> 00:01:09,240
+Let's do ls -l again
+
+15
+00:01:10,480 --> 00:01:14,800
+So so far, by color, you must have been understanding that this is a file and this is a directory,
+
+16
+00:01:14,800 --> 00:01:18,230
+but really the colors comes from the client.
+
+17
+00:01:18,250 --> 00:01:22,420
+So this gitbash we're using, this gitbash is showing us these colors.
+
+18
+00:01:22,420 --> 00:01:26,320
+But, there is information available over here, if you see here.
+
+19
+00:01:28,160 --> 00:01:33,500
+At the beginning, if you see a - in the information, that means it's a regular file, regular
+
+20
+00:01:33,500 --> 00:01:37,150
+file could mean it's a text file or it could mean it's a binary file also.
+
+21
+00:01:37,640 --> 00:01:42,230
+So to be sure, you can run the file command you can give the path of the file.
+
+22
+00:01:42,360 --> 00:01:46,940
+I'll give this, so it says ASCII text.
+
+23
+00:01:46,940 --> 00:01:48,010
+So it's a text file.
+
+24
+00:01:48,020 --> 00:01:49,070
+We have already seen that.
+
+25
+00:01:49,700 --> 00:01:54,080
+But there's also, then if you go to bin dir.
+
+26
+00:01:54,090 --> 00:01:55,370
+ls -l here.
+
+27
+00:01:57,350 --> 00:02:03,710
+You see a lot of file over here and there is a hyphen over here, that means it's a file, but there's
+
+28
+00:02:03,710 --> 00:02:07,220
+no guarantee if its text file. So we can run the file command.
+
+29
+00:02:08,210 --> 00:02:09,949
+File and let's say yum.
+
+30
+00:02:12,980 --> 00:02:19,120
+Well, yum is also a text file, but it's a Python script. Or lets do file to some other file.
+
+31
+00:02:19,130 --> 00:02:23,180
+Let's give absolute path this time. /bin/pwd
+
+32
+00:02:24,660 --> 00:02:30,540
+OK, that's a binary file, so there was a program written, then it was compiled and you got the binary
+
+33
+00:02:30,540 --> 00:02:34,740
+file from that. ELF 64 bit LSP executable.
+
+34
+00:02:34,750 --> 00:02:42,590
+You see the version. Sorry, architecture, that's 64 bit dynamically linked uses shared libraries.
+
+35
+00:02:42,600 --> 00:02:43,590
+It's a binary file.
+
+36
+00:02:44,310 --> 00:02:46,200
+OK, let's go back to your home dir.
+
+37
+00:02:47,020 --> 00:02:47,970
+lets clear the screen.
+
+38
+00:02:49,220 --> 00:02:58,730
+ls -l, so hyphen is for a file and the d for directory, so you can run a file command on this directory.
+
+39
+00:02:59,750 --> 00:03:00,750
+This is directory.
+
+40
+00:03:01,430 --> 00:03:06,990
+Now, these are the files will be usually manipulating, directories, files, but then there is a slash
+
+41
+00:03:07,040 --> 00:03:07,880
+/dev dire
+
+42
+00:03:07,880 --> 00:03:12,230
+This dir contains device files. If you do ls -l.
+
+43
+00:03:13,610 --> 00:03:15,310
+You should see the different characters.
+
+44
+00:03:15,340 --> 00:03:20,420
+C is for characters like Keyboard is a character device.
+
+45
+00:03:20,430 --> 00:03:21,990
+So you'll see for keyboard, c.
+
+46
+00:03:22,490 --> 00:03:26,490
+tty, that's the session, the commands where we are running that shell.
+
+47
+00:03:26,520 --> 00:03:28,640
+shell, we get a tty session.
+
+48
+00:03:28,640 --> 00:03:29,750
+That's a character file.
+
+49
+00:03:32,420 --> 00:03:39,410
+sda, that is our hard disk, yes, that is our hard disk, and you see there's b. b means block file
+
+50
+00:03:39,410 --> 00:03:39,870
+block file.
+
+51
+00:03:40,610 --> 00:03:45,950
+So any kind of block disk, if you attach, it will be read as block disk.
+
+52
+00:03:46,220 --> 00:03:46,880
+Block file.
+
+53
+00:03:47,850 --> 00:03:53,970
+l is for link. Like shortcuts we have, like we have desktop shortcuts, that's not the original
+
+54
+00:03:53,970 --> 00:03:54,210
+file.
+
+55
+00:03:54,210 --> 00:03:55,720
+It points to some other file, right.
+
+56
+00:03:56,400 --> 00:03:57,840
+So this is a shortcut.
+
+57
+00:03:57,990 --> 00:03:59,100
+So a link file.
+
+58
+00:03:59,400 --> 00:04:00,460
+It points to this file.
+
+59
+00:04:00,480 --> 00:04:01,620
+This is the original file.
+
+60
+00:04:02,010 --> 00:04:06,710
+OK, and this rtc0 is in the same dir here, and that is a character file.
+
+61
+00:04:07,380 --> 00:04:08,310
+So block.
+
+62
+00:04:08,460 --> 00:04:10,140
+Character socket.
+
+63
+00:04:11,180 --> 00:04:17,240
+s is for socket, these files, we don't do really any operations on that mostly, but it's good to know
+
+64
+00:04:17,240 --> 00:04:21,200
+what kind of file you're dealing with so you can use appropriate commands.
+
+65
+00:04:22,910 --> 00:04:29,960
+So, - regular file. d dir. l link file. c character file. Mechanism used for input output,
+
+66
+00:04:29,960 --> 00:04:37,240
+such as files in dev. s socket file. Used for inter process networking and p, pipe file
+
+67
+00:04:37,760 --> 00:04:40,000
+Now we have seen regular file text files.
+
+68
+00:04:40,010 --> 00:04:43,230
+We have seen we did operations on them. We did directory operation.
+
+69
+00:04:43,570 --> 00:04:44,890
+Now let's do some link operation.
+
+70
+00:04:44,900 --> 00:04:47,120
+We will create links.
+
+71
+00:04:50,410 --> 00:04:57,340
+So I'm in the root users home dir and I'm going to create a link here to a file that is somewhere
+
+72
+00:04:57,340 --> 00:05:03,670
+else located, so I'm going to create a directory in /opt inside that I will create a dir dev
+
+73
+00:05:03,670 --> 00:05:05,440
+inside that, I will create dir named ops
+
+74
+00:05:05,440 --> 00:05:08,950
+And inside that devops, inside that.
+
+75
+00:05:10,260 --> 00:05:16,290
+Directory named test. Now if I run this, command, there's no dev dir, so it will not be able to create
+
+76
+00:05:16,290 --> 00:05:18,330
+ops and other directories.
+
+77
+00:05:18,810 --> 00:05:20,040
+So it's going to throw me an error.
+
+78
+00:05:20,400 --> 00:05:26,730
+But if I use an option -p, then it will just create that entire dir structure for me.
+
+79
+00:05:27,240 --> 00:05:29,570
+No questions asked if I run this command once again.
+
+80
+00:05:29,580 --> 00:05:31,400
+Also, there's no error.
+
+81
+00:05:31,800 --> 00:05:31,980
+Right.
+
+82
+00:05:32,310 --> 00:05:37,860
+But if I use if I don't use -p and the directory already exist, it's going to throw me an error
+
+83
+00:05:38,040 --> 00:05:48,540
+that dir file exist. Now, I'll create a file inside that, dir, opt, dev, ops, devops, test.
+
+84
+00:05:50,230 --> 00:05:52,030
+File named commands.txt
+
+85
+00:05:55,000 --> 00:05:57,220
+OK, I just write some commands over here.
+
+86
+00:06:08,080 --> 00:06:11,050
+Put any content you want and save it.
+
+87
+00:06:13,080 --> 00:06:19,080
+Now, let's say there is a file that I regularly access, which is so many levels in, and usually I
+
+88
+00:06:19,080 --> 00:06:23,410
+log into my home dir and from there I want to access the files. So I have to give this complete path
+
+89
+00:06:23,410 --> 00:06:24,670
+complete path, which is very long.
+
+90
+00:06:24,690 --> 00:06:27,800
+So instead of that, I create a link over here.
+
+91
+00:06:28,170 --> 00:06:32,520
+So I'll give the command ln -s, which stands for Soft Link.
+
+92
+00:06:32,520 --> 00:06:36,200
+Just like shortcuts, firts, you give the destination.
+
+93
+00:06:36,210 --> 00:06:36,750
+Yes.
+
+94
+00:06:37,080 --> 00:06:40,510
+First to you the destination file and then you do the source file.
+
+95
+00:06:40,920 --> 00:06:44,040
+So destination I'm giving absolute path, source also.
+
+96
+00:06:44,040 --> 00:06:46,170
+I can give absolute but I'll give you a relative path.
+
+97
+00:06:46,710 --> 00:06:49,170
+I will say cmds
+
+98
+00:06:50,760 --> 00:06:54,750
+If I do ls -l
+
+99
+00:06:56,370 --> 00:07:04,380
+I should see a link, cmd, that points to this original file, so if I do cat cmds , I should see the
+
+100
+00:07:04,380 --> 00:07:05,410
+content from that file.
+
+101
+00:07:06,250 --> 00:07:06,630
+All right.
+
+102
+00:07:06,670 --> 00:07:08,310
+You see this link file, right?
+
+103
+00:07:10,340 --> 00:07:13,010
+OK, what happens if the original file is gone?
+
+104
+00:07:13,250 --> 00:07:15,680
+Let's move that original file to somewhere else.
+
+105
+00:07:16,550 --> 00:07:17,900
+Let's move it to /tmp.
+
+106
+00:07:20,100 --> 00:07:21,120
+ls -l
+
+107
+00:07:22,470 --> 00:07:24,750
+And you see, it will be blinking.
+
+108
+00:07:25,170 --> 00:07:26,310
+It will be highlighted like that.
+
+109
+00:07:26,340 --> 00:07:27,610
+This means it's a dead link.
+
+110
+00:07:27,810 --> 00:07:29,870
+It points to a file that does not exist.
+
+111
+00:07:30,900 --> 00:07:31,230
+.
+
+112
+00:07:32,140 --> 00:07:35,920
+Well, I'll move back that file again to the same path.
+
+113
+00:07:38,960 --> 00:07:43,070
+And I don't need to do anything else, the link will be back live again.
+
+114
+00:07:44,260 --> 00:07:47,620
+OK, watch out the path that I'm using, the absolute paths.
+
+115
+00:07:50,490 --> 00:07:52,020
+OK, let's clear the screen now.
+
+116
+00:07:54,580 --> 00:08:00,190
+If you want to remove a link, you can just remove the file directly by using rm Command or you can
+
+117
+00:08:00,190 --> 00:08:01,870
+use unlink command also.
+
+118
+00:08:05,020 --> 00:08:06,600
+And that should be gone now.
+
+119
+00:08:07,780 --> 00:08:10,280
+But it's just the link that we have removed.
+
+120
+00:08:10,310 --> 00:08:10,520
+OK?
+
+121
+00:08:10,580 --> 00:08:18,370
+Original files still exist, so I'm creating the link once again, ls -l. Now few more options.
+
+122
+00:08:18,370 --> 00:08:23,500
+With ls Command. -l shows you lot of information about the file, but it is going
+
+123
+00:08:23,500 --> 00:08:27,700
+to sort as per the alphabet's abcde like that.
+
+124
+00:08:28,300 --> 00:08:32,890
+If you want to sort it as per the timestamp, you can use t.
+
+125
+00:08:33,309 --> 00:08:36,610
+There is a timestamp on every file when the file was last updated.
+
+126
+00:08:37,770 --> 00:08:44,090
+OK, so if I do ls -lt, it's going to sort as per the time stamp, it will show the latest first
+
+127
+00:08:44,670 --> 00:08:47,070
+and the older one at the end.
+
+128
+00:08:48,490 --> 00:08:52,360
+If you want to reverse the sort you can use, r.
+
+129
+00:08:53,050 --> 00:08:59,040
+It is going to show you the latest file at the end and which is very good if you have a lot of files,
+
+130
+00:08:59,050 --> 00:09:05,590
+for example, if you go to /etc directly or I will not just go, I'll just do it from here.
+
+131
+00:09:05,920 --> 00:09:07,780
+ls -ltr /etc
+
+132
+00:09:10,000 --> 00:09:10,730
+ls -ltr /etc
+
+133
+00:09:12,370 --> 00:09:14,770
+It is going to show all the files in this directory.
+
+134
+00:09:16,240 --> 00:09:19,030
+And sort it as per the time stamp and then reverse it.
+
+135
+00:09:20,070 --> 00:09:28,080
+And we'll do one thing, we're going to change the host name now, host name. /etc/hostname file
+
+136
+00:09:28,080 --> 00:09:29,610
+I will change the hostname to
+
+137
+00:09:31,300 --> 00:09:35,830
+centos.devops.in
+
+138
+00:09:38,160 --> 00:09:39,030
+save & quit.
+
+139
+00:09:40,520 --> 00:09:46,950
+Now, when you change that, you can run one more command hostname and the hostname centos.devops.in
+
+140
+00:09:47,420 --> 00:09:49,070
+.
+
+141
+00:09:50,700 --> 00:09:54,840
+OK, then we logout you can use ctrl+d or exit.
+
+142
+00:09:57,420 --> 00:09:59,130
+And then we login back in again.
+
+143
+00:10:00,380 --> 00:10:02,840
+And now you should see the host name has changed.
+
+144
+00:10:04,450 --> 00:10:05,470
+Let me clear the screen.
+
+145
+00:10:06,740 --> 00:10:12,690
+And again, run the hostname command and cd hostname, and you should see ls -ltr /etc/
+
+146
+00:10:12,820 --> 00:10:17,110
+That's the last file that was updated.
+
+147
+00:10:17,780 --> 00:10:20,030
+So you are also seeing how we change configuration.
+
+148
+00:10:20,030 --> 00:10:21,210
+We just edit the file.
+
+149
+00:10:21,470 --> 00:10:24,510
+Make the changes, save it, and that's it.
+
+150
+00:10:25,220 --> 00:10:32,210
+So it's a normal ASCII text file and we can make the changes by using vim editor. Again to get all your
+
+151
+00:10:32,210 --> 00:10:36,260
+previously executed command, run the history command and get all your commands.
+
+152
+00:10:36,890 --> 00:10:39,800
+Now currently its showing history of vagrant user.
+
+153
+00:10:39,800 --> 00:10:42,470
+If I do sudo -i , I ran history command.
+
+154
+00:10:45,650 --> 00:10:50,270
+And this is the history of root user. Well, that is all in this video.
+
+155
+00:10:50,300 --> 00:10:51,770
+I will see you in the next one.
+

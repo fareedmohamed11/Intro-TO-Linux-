@@ -1,0 +1,664 @@
+1
+00:00:01,310 --> 00:00:07,939
+In this video, we will be talking about file permissions, we have seen so many types of file text
+
+2
+00:00:07,939 --> 00:00:13,490
+file, directories, link file, every file will have ownership.
+
+3
+00:00:13,820 --> 00:00:20,190
+As you see here, there is this file which has an ownership of a root user and the group ownership root.
+
+4
+00:00:20,780 --> 00:00:24,170
+So root User owns this file and the group root owns this file.
+
+5
+00:00:25,220 --> 00:00:31,370
+And then you have the permissions rwx, read, right, execute for the root user, then you have
+
+6
+00:00:31,370 --> 00:00:38,060
+r - x read and execute permission for the root group and the third one is r - x, which is
+
+7
+00:00:38,060 --> 00:00:38,740
+for others.
+
+8
+00:00:39,020 --> 00:00:41,510
+So you have read and execute permission for others.
+
+9
+00:00:42,230 --> 00:00:43,640
+Now let's see how that works.
+
+10
+00:00:45,690 --> 00:00:49,260
+So let's do ls -l here in the home dir of root user.
+
+11
+00:00:50,380 --> 00:00:54,430
+And you see some files and see some directories and links.
+
+12
+00:00:55,750 --> 00:00:58,740
+Let's copy this information to a text file.
+
+13
+00:00:59,690 --> 00:01:00,650
+And decode it
+
+14
+00:01:03,790 --> 00:01:07,750
+OK, so for the file, anaconda-ks.cfg
+
+15
+00:01:09,990 --> 00:01:15,200
+It is owned by the root user and the group is root, the permission to this file.
+
+16
+00:01:15,210 --> 00:01:21,270
+So you will have first hyphen, which is the type of file then you have next three hyphen or three
+
+17
+00:01:21,270 --> 00:01:26,820
+placeholder where you will have, first, you have here rw, which means read and write.
+
+18
+00:01:31,940 --> 00:01:37,500
+So this really is the file type, right?
+
+19
+00:01:38,030 --> 00:01:45,150
+And the next three bits you see is for the user or the owner of the file.
+
+20
+00:01:45,620 --> 00:01:48,710
+And then the next three is for the group.
+
+21
+00:01:53,660 --> 00:01:57,560
+And in the last three, its for others.
+
+22
+00:02:02,670 --> 00:02:11,220
+These are the permissions or callers as mode for a particular entity, so for user or the owner you
+
+23
+00:02:11,220 --> 00:02:18,630
+have read and write r w, so r means read permission.
+
+24
+00:02:20,510 --> 00:02:22,760
+W means write permission.
+
+25
+00:02:25,260 --> 00:02:28,920
+And if you see that x, that means the executable permission.
+
+26
+00:02:34,810 --> 00:02:39,340
+All right, with this information, we can look at this dir, divorce dir, and we can see
+
+27
+00:02:39,340 --> 00:02:46,570
+for the user root it has read, write and execute permission on this directory for the group root
+
+28
+00:02:46,930 --> 00:02:49,060
+it has read and execute.
+
+29
+00:02:49,060 --> 00:02:51,510
+If there is a hyphen, that means that permission is missing.
+
+30
+00:02:51,790 --> 00:02:51,970
+So.
+
+31
+00:02:52,000 --> 00:02:52,240
+Right.
+
+32
+00:02:52,240 --> 00:02:54,190
+Permission is missing for the group root.
+
+33
+00:02:54,790 --> 00:02:56,170
+Last 3 for others.
+
+34
+00:02:56,740 --> 00:03:05,290
+Read and execute permission for other users on this directory. For Anakonda-ks file only the root
+
+35
+00:03:05,290 --> 00:03:08,620
+user has read and write permission.
+
+36
+00:03:08,620 --> 00:03:10,630
+Nobody else has any permission.
+
+37
+00:03:10,630 --> 00:03:11,530
+Not even the group.
+
+38
+00:03:11,530 --> 00:03:12,660
+Not even the others.
+
+39
+00:03:13,360 --> 00:03:17,020
+Now execute permission on a directory means you can do cd.
+
+40
+00:03:17,320 --> 00:03:19,750
+Any other person can do.
+
+41
+00:03:19,750 --> 00:03:22,930
+Any other user can do cd into the devops dir.
+
+42
+00:03:23,380 --> 00:03:28,480
+r is for read, can do a ls, list the content in the directory.
+
+43
+00:03:29,510 --> 00:03:32,630
+And w write  means can make changes, can even delete it.
+
+44
+00:03:34,070 --> 00:03:40,640
+For a link file, you should see full permission, but that is the permission for the link and not for
+
+45
+00:03:40,640 --> 00:03:45,230
+the actual file where it points to. The actual file permission could be something else.
+
+46
+00:03:45,950 --> 00:03:46,730
+OK, so.
+
+47
+00:03:48,380 --> 00:03:54,980
+Reiterating it once again, devops dir is owned by root user and the root group, and these are the
+
+48
+00:03:54,980 --> 00:04:01,010
+permission, read write execute for root user, read and execute for group, read and execute for others.
+
+49
+00:04:02,330 --> 00:04:04,190
+Now let's make changes.
+
+50
+00:04:04,970 --> 00:04:05,660
+Not here.
+
+51
+00:04:05,660 --> 00:04:07,520
+Will create a different directory.
+
+52
+00:04:07,520 --> 00:04:11,450
+/opt/devopsdir
+
+53
+00:04:13,490 --> 00:04:16,820
+And I will do ls -l  to opt dir.
+
+54
+00:04:18,480 --> 00:04:23,510
+And you see there is a devops dir, when you created with the root users.
+
+55
+00:04:23,560 --> 00:04:27,300
+It is owned by the root user and this is the current authorization.
+
+56
+00:04:28,600 --> 00:04:35,080
+Now I will create some group and some users. So for group, named devops , and then I will
+
+57
+00:04:35,080 --> 00:04:44,350
+create some users. useradd and I will say ansible, useradd jenkins' and then useradd.
+
+58
+00:04:45,410 --> 00:04:46,310
+aws
+
+59
+00:04:48,860 --> 00:04:49,500
+That is fine.
+
+60
+00:04:49,520 --> 00:04:50,610
+That's not an error.
+
+61
+00:04:50,690 --> 00:04:53,000
+Its mailing pool already exist, it says.
+
+62
+00:04:54,870 --> 00:05:00,060
+Let's add one more user, we will add a user named Miles.
+
+63
+00:05:02,750 --> 00:05:04,160
+OK, now I will add.
+
+64
+00:05:05,320 --> 00:05:10,540
+These three users into the devops group. 
+
+65
+00:05:10,540 --> 00:05:12,820
+I am going to edit the group file directly.
+
+66
+00:05:16,350 --> 00:05:24,450
+I will go to the group devops and add the user, aws, ansible, jenkins.
+
+67
+00:05:26,330 --> 00:05:30,900
+OK, I am not adding the user miles into this group. Save and quit.
+
+68
+00:05:33,670 --> 00:05:34,770
+OK, let's test it.
+
+69
+00:05:35,680 --> 00:05:39,880
+id ansible, it's in the group devops.
+
+70
+00:05:41,690 --> 00:05:42,380
+OK, then.
+
+71
+00:05:44,180 --> 00:05:48,080
+So I have created a dir, you can check the permission of directory by using ls -ld
+
+72
+00:05:48,680 --> 00:05:52,640
+ls -ld /opt/devopsdir
+
+73
+00:05:55,340 --> 00:06:00,980
+Now, I want to change the ownership. chown  command and I give the user name, so I will give
+
+74
+00:06:00,980 --> 00:06:07,370
+the user named Ansible and I can give the group name also here by using a colon : or a dot .
+
+75
+00:06:07,370 --> 00:06:09,830
+group name, I will say Dev Ops.
+
+76
+00:06:12,480 --> 00:06:18,870
+And devops dir path, if you want to do it recursively, like also Subdirectories, you can use -r
+
+77
+00:06:18,870 --> 00:06:21,720
+but currently there's nothing in that directory, so.
+
+78
+00:06:23,400 --> 00:06:27,810
+It's not going to make any changes inside that directory because it does not have any files.
+
+79
+00:06:28,440 --> 00:06:30,300
+OK, now let's do ls -ld
+
+80
+00:06:31,510 --> 00:06:37,360
+Now, one thing before we continue or be very careful with using recursive option, if you really mean
+
+81
+00:06:37,360 --> 00:06:39,190
+to do that, then only use recursive.
+
+82
+00:06:40,240 --> 00:06:45,610
+If you have like hundreds of files and directly inside that, remember, every file will have this user
+
+83
+00:06:45,610 --> 00:06:49,860
+and this group ownership then. It will not be easy to roll back.
+
+84
+00:06:50,620 --> 00:06:53,140
+So be careful when you're doing this recursive operation.
+
+85
+00:06:54,010 --> 00:06:59,650
+OK, now this directory is owned by the ansible user and the group is Dev Ops and they have these permissions.
+
+86
+00:07:00,910 --> 00:07:06,100
+Full permission for Ansible and read & execute permission for the group, I want to change that.
+
+87
+00:07:06,100 --> 00:07:11,920
+I want to remove permission for others, all the permissions, and I want to add write.
+
+88
+00:07:11,920 --> 00:07:13,000
+write permission for the group.
+
+89
+00:07:13,930 --> 00:07:19,980
+So the command is chmod and I'm going to say for others.
+
+90
+00:07:20,080 --> 00:07:26,860
+So o is for others - x, so for others remove execute permission like that.
+
+91
+00:07:30,750 --> 00:07:33,760
+So any other user will not be able to do cd into that directory.
+
+92
+00:07:33,780 --> 00:07:39,960
+That's nice, but that other users can do ls to that file, which I don't want.
+
+93
+00:07:39,970 --> 00:07:48,000
+So I would like to say o-r, so for others remove read permission also.
+
+94
+00:07:50,350 --> 00:07:51,190
+Yeah, that's nice.
+
+95
+00:07:51,460 --> 00:07:58,630
+Now I want to add write permission for the group, so I will say, chmod, g for group, plus to add, w is write permission
+
+96
+00:07:58,630 --> 00:08:02,430
+permission /opt/devopsdir
+
+97
+00:08:07,630 --> 00:08:15,160
+So now it's how I wanted it to be and ansible user has full permission to read, write, execute. devops group has full
+
+98
+00:08:15,160 --> 00:08:19,690
+permission, read write execute and others have no permission whatsoever.
+
+99
+00:08:20,750 --> 00:08:26,820
+Now, I will switch to Miles User, which is others for this file.
+
+100
+00:08:27,230 --> 00:08:28,490
+So if I do a less.
+
+101
+00:08:29,590 --> 00:08:34,880
+ls /opt/devopsdir, I will get permission denied.
+
+102
+00:08:34,900 --> 00:08:36,820
+If I tried to do cd into that dir.
+
+103
+00:08:38,679 --> 00:08:42,659
+I will get permission denied because execute permission is not there for others.
+
+104
+00:08:43,970 --> 00:08:49,130
+And definitely can't make any changes in that dir, if I try to create some file.
+
+105
+00:08:50,180 --> 00:09:00,200
+touch I would say /opt/devopsdir/test1. Permission denied, so no write, no execute and no read permission.
+
+106
+00:09:00,710 --> 00:09:03,950
+But if I switch to lets say aws user.
+
+107
+00:09:06,190 --> 00:09:13,480
+Now, I did not set  any password for this user. So I have to say exit. From the root user, you do switch
+
+108
+00:09:13,480 --> 00:09:16,000
+to aws user or any user that you created.
+
+109
+00:09:17,200 --> 00:09:20,740
+Now, aws User is a part of the devops Group.
+
+110
+00:09:22,100 --> 00:09:28,710
+So can do a ls /opt/devopsdir, nice, can do cd.
+
+111
+00:09:32,870 --> 00:09:35,120
+Yes, let me clear the screen.
+
+112
+00:09:39,950 --> 00:09:42,170
+Can create a file also here, touch.
+
+113
+00:09:43,220 --> 00:09:46,010
+I will say awsfiles.
+
+114
+00:09:49,620 --> 00:09:51,540
+Yeah, so read write execute permission
+
+115
+00:09:53,750 --> 00:09:56,150
+So that's how this permission.
+
+116
+00:09:57,420 --> 00:09:59,290
+And ownership work together.
+
+117
+00:09:59,430 --> 00:10:00,600
+So in this directory.
+
+118
+00:10:01,820 --> 00:10:05,400
+Ansible and any user in the devops group has full permission.
+
+119
+00:10:05,780 --> 00:10:07,490
+Others have no permission.
+
+120
+00:10:08,180 --> 00:10:17,630
+So the ownership and the mode permission works together to secure a file or to give it right privilege
+
+121
+00:10:17,630 --> 00:10:18,470
+to right user.
+
+122
+00:10:19,460 --> 00:10:21,530
+OK, now let me exit from this user.
+
+123
+00:10:25,050 --> 00:10:32,010
+OK, so as you have Alphabet's for user group and others and you have Alphabet's for the permission
+
+124
+00:10:32,010 --> 00:10:39,900
+read write execute and your plus and minus to grant or deny permission. Like that, you also have a number
+
+125
+00:10:39,900 --> 00:10:43,860
+associated with this permission read write execute.
+
+126
+00:10:44,160 --> 00:10:48,200
+So in chmod we have seen symbolic method of changing the file permission.
+
+127
+00:10:48,250 --> 00:10:49,680
+There is also numeric method.
+
+128
+00:10:50,590 --> 00:10:56,170
+So you have to specify three, three digit number, the first digit will be for the owner, the
+
+129
+00:10:56,170 --> 00:11:00,690
+user, the second digit will be for the group, third digit will be for others.
+
+130
+00:11:01,420 --> 00:11:06,490
+And you can use these integeral value 4 is for read, 2 is for
+
+131
+00:11:06,490 --> 00:11:06,850
+write
+
+132
+00:11:06,850 --> 00:11:08,280
+And 1 is for others.
+
+133
+00:11:08,800 --> 00:11:09,640
+So an example.
+
+134
+00:11:09,640 --> 00:11:18,490
+If I give chmod 640. The first digit, which is for the user owner, six, which
+
+135
+00:11:18,490 --> 00:11:20,200
+id 4+2=6
+
+136
+00:11:21,500 --> 00:11:28,730
+So read and write permission for the user. 4 that means just read permission for the group, 0
+
+137
+00:11:28,730 --> 00:11:31,460
+0 means no permission for others.
+
+138
+00:11:32,210 --> 00:11:33,140
+So let's go back.
+
+139
+00:11:34,330 --> 00:11:37,710
+And I will create, again, a new directory.
+
+140
+00:11:38,900 --> 00:11:46,460
+/opt/webdata, I will create a dir named webdata there, ls -ld /opt/webdata.
+
+141
+00:11:47,830 --> 00:11:51,670
+First again I will change the ownership. chown.
+
+142
+00:11:52,680 --> 00:11:56,730
+I will give user aws and group devops.
+
+143
+00:12:07,080 --> 00:12:14,190
+OK, now I want to change the permission at once for the user, for the group and for the others, and
+
+144
+00:12:14,190 --> 00:12:17,610
+I want full permission for a user.
+
+145
+00:12:19,400 --> 00:12:26,720
+Full permission for the group and no permission for others, so let's check our document.
+
+146
+00:12:27,700 --> 00:12:28,380
+Full permission.
+
+147
+00:12:28,430 --> 00:12:32,170
+Read, write, execute, 4+2+1=7
+
+148
+00:12:32,410 --> 00:12:39,610
+4+2+1=7, That's seven, so we have to give seven for the user and then for group.
+
+149
+00:12:39,610 --> 00:12:42,640
+Also we're saying devops group, read, write, execute.
+
+150
+00:12:43,030 --> 00:12:48,250
+So 4+2+1=7, seven and no permission for others.
+
+151
+00:12:48,250 --> 00:12:49,150
+So zero.
+
+152
+00:12:53,720 --> 00:12:54,890
+And we give the path.
+
+153
+00:12:56,510 --> 00:13:01,610
+If you want to do this recursively, if there are files inside that directory, you want to do it recursively,
+
+154
+00:13:01,610 --> 00:13:03,410
+then use use an option R, -R.
+
+155
+00:13:04,710 --> 00:13:06,210
+And it will do it recursively.
+
+156
+00:13:10,760 --> 00:13:18,470
+Likewise, if I want to give full permission for the user, I will say seven for the group. I just want to give
+
+157
+00:13:18,740 --> 00:13:19,920
+read and execute.
+
+158
+00:13:19,940 --> 00:13:22,460
+So four plus one, that's five.
+
+159
+00:13:23,060 --> 00:13:25,450
+And let's say I want to give read permission for others.
+
+160
+00:13:25,460 --> 00:13:26,480
+So 4.
+
+161
+00:13:29,710 --> 00:13:33,730
+Again, if you want to do it recursively or you don't want to do it.
+
+162
+00:13:35,340 --> 00:13:36,680
+That depends on the situation.
+
+163
+00:13:42,880 --> 00:13:49,410
+So numeric method is easy or quick way to give permission for user group and others at the same time.
+
+164
+00:13:50,430 --> 00:13:53,580
+Or if you are only comfortable with symbolic method, you can go with that.
+
+165
+00:13:55,870 --> 00:14:04,380
+Numeric method with the numbers 4,2,1 and symbolic method with plus minus and the permission are
+
+166
+00:14:04,390 --> 00:14:05,380
+rwx
+
